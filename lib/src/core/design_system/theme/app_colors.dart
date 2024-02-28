@@ -1,5 +1,7 @@
 part of 'theme.dart';
 
+const defaultColor = Color(0XFFCC0000);
+
 extension PokemonTypeExtension on PokemonType {
   Color get color => switch (this) {
         PokemonType.normal => const Color(0xFFA8A878),

@@ -7,6 +7,9 @@ extension BuildContextX on BuildContext {
 extension ThemeDataCommonExtension on ThemeData {
   ThemeData get common => copyWith(
         filledButtonTheme: _CommonAppThemeData.filledButtonThemeData,
+        appBarTheme: appBarTheme.copyWith(
+          backgroundColor: primaryColor,
+        ),
       );
 }
 
