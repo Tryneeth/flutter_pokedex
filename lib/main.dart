@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pokedex/src/core/design_system/theme/theme.dart';
+import 'package:flutter_pokedex/src/core/enums/pokemon_type.dart';
 
 void main() {
   runApp(const Pokedex());
@@ -11,10 +13,7 @@ class Pokedex extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pokédex Code Challenge',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: PokedexAppTheme.getThemeByType(PokemonType.water),
       home: const Home(),
     );
   }
