@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/theme/bloc/theme_bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/theme/theme.dart';
-import 'package:flutter_pokedex/src/core/enums/pokemon_type.dart';
+import 'package:flutter_pokedex/src/domain/models/pokemon_type.dart';
 
 void main() {
   runApp(const Pokedex());

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/src/core/design_system/atoms/dimensions.dart';
-import 'package:flutter_pokedex/src/core/enums/pokemon_type.dart';
+import 'package:flutter_pokedex/src/domain/models/pokemon_type.dart';
 
 part 'theme_data.dart';
 part 'app_colors.dart';

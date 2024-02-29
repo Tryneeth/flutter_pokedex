@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'stat.dart';
-part 'type.dart';
-part 'item.dart';
+part 'stat_response.dart';
+part 'type_response.dart';
+part 'item_response.dart';
 part 'official_artwork.dart';
-part 'artwork.dart';
+part 'artwork_response.dart';
 
 part 'pokemon_response.freezed.dart';
 part 'pokemon_response.g.dart';
@@ -16,10 +16,11 @@ class PokemonResponse with _$PokemonResponse {
     required int id,
     required String name,
     required int weight,
+    @JsonKey(name: 'base_experience') required int baseXP,
     int? order,
-    List<Stat>? stats,
-    List<Type>? types,
-    required Artwork artwork,
+    List<StatResponse>? stats,
+    List<TypeResponse>? types,
+    required ArtworkResponse artwork,
   }) = _PokemonResponse;
 
   factory PokemonResponse.fromJson(Map<String, dynamic> json) =>
