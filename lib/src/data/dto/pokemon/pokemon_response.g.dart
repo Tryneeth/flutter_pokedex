@@ -27,17 +27,15 @@ _$PokemonResponseImpl _$$PokemonResponseImplFromJson(
 
 _$StatResponseImpl _$$StatResponseImplFromJson(Map<String, dynamic> json) =>
     _$StatResponseImpl(
-      baseStat: json['base_stat'] as int?,
-      effort: json['effort'] as int?,
+      baseStat: json['base_stat'] as int,
+      effort: json['effort'] as int,
       item: ItemResponse.fromJson(json['stat'] as Map<String, dynamic>),
     );
 
 _$TypeResponseImpl _$$TypeResponseImplFromJson(Map<String, dynamic> json) =>
     _$TypeResponseImpl(
-      slot: json['slot'] as int?,
-      type: json['type'] == null
-          ? null
-          : ItemResponse.fromJson(json['type'] as Map<String, dynamic>),
+      slot: json['slot'] as int,
+      type: ItemResponse.fromJson(json['type'] as Map<String, dynamic>),
     );
 
 _$ItemResponseImpl _$$ItemResponseImplFromJson(Map<String, dynamic> json) =>

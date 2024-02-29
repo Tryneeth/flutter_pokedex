@@ -13,3 +13,4 @@ linter:
     avoid_print: false
     require_trailing_commas: true
     directives_ordering: true
+    sort_constructors_first: true

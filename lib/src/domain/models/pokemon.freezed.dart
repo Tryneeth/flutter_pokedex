@@ -24,6 +24,7 @@ mixin _$Pokemon {
   int? get order => throw _privateConstructorUsedError;
   List<Stat>? get stats => throw _privateConstructorUsedError;
   List<PokemonType>? get types => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonCopyWith<Pokemon> get copyWith => throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ abstract class $PokemonCopyWith<$Res> {
       int baseXP,
       int? order,
       List<Stat>? stats,
-      List<PokemonType>? types});
+      List<PokemonType>? types,
+      String? thumbnail});
 }
 
 /// @nodoc
@@ -66,6 +68,7 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
     Object? order = freezed,
     Object? stats = freezed,
     Object? types = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_value.copyWith(
       height: null == height
@@ -100,6 +103,10 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
               as List<PokemonType>?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -119,7 +126,8 @@ abstract class _$$PokemonImplCopyWith<$Res> implements $PokemonCopyWith<$Res> {
       int baseXP,
       int? order,
       List<Stat>? stats,
-      List<PokemonType>? types});
+      List<PokemonType>? types,
+      String? thumbnail});
 }
 
 /// @nodoc
@@ -141,6 +149,7 @@ class __$$PokemonImplCopyWithImpl<$Res>
     Object? order = freezed,
     Object? stats = freezed,
     Object? types = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_$PokemonImpl(
       height: null == height
@@ -175,6 +184,10 @@ class __$$PokemonImplCopyWithImpl<$Res>
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
               as List<PokemonType>?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -190,7 +203,8 @@ class _$PokemonImpl implements _Pokemon {
       required this.baseXP,
       this.order,
       final List<Stat>? stats,
-      final List<PokemonType>? types})
+      final List<PokemonType>? types,
+      this.thumbnail})
       : _stats = stats,
         _types = types;
 
@@ -227,8 +241,11 @@ class _$PokemonImpl implements _Pokemon {
   }
 
   @override
+  final String? thumbnail;
+
+  @override
   String toString() {
-    return 'Pokemon(height: $height, id: $id, name: $name, weight: $weight, baseXP: $baseXP, order: $order, stats: $stats, types: $types)';
+    return 'Pokemon(height: $height, id: $id, name: $name, weight: $weight, baseXP: $baseXP, order: $order, stats: $stats, types: $types, thumbnail: $thumbnail)';
   }
 
   @override
@@ -243,7 +260,9 @@ class _$PokemonImpl implements _Pokemon {
             (identical(other.baseXP, baseXP) || other.baseXP == baseXP) &&
             (identical(other.order, order) || other.order == order) &&
             const DeepCollectionEquality().equals(other._stats, _stats) &&
-            const DeepCollectionEquality().equals(other._types, _types));
+            const DeepCollectionEquality().equals(other._types, _types) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail));
   }
 
   @override
@@ -256,7 +275,8 @@ class _$PokemonImpl implements _Pokemon {
       baseXP,
       order,
       const DeepCollectionEquality().hash(_stats),
-      const DeepCollectionEquality().hash(_types));
+      const DeepCollectionEquality().hash(_types),
+      thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -274,7 +294,8 @@ abstract class _Pokemon implements Pokemon {
       required final int baseXP,
       final int? order,
       final List<Stat>? stats,
-      final List<PokemonType>? types}) = _$PokemonImpl;
+      final List<PokemonType>? types,
+      final String? thumbnail}) = _$PokemonImpl;
 
   @override
   int get height;
@@ -292,6 +313,8 @@ abstract class _Pokemon implements Pokemon {
   List<Stat>? get stats;
   @override
   List<PokemonType>? get types;
+  @override
+  String? get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$PokemonImplCopyWith<_$PokemonImpl> get copyWith =>

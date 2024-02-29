@@ -10,6 +10,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i4;
 import 'package:flutter_pokedex/src/data/providers/pokemon_api.dart' as _i3;
+import 'package:flutter_pokedex/src/domain/repositories/pokemon_repository.dart'
+    as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -28,6 +30,8 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i4.Dio>(),
           baseUrl: gh<String>(instanceName: 'baseUrlV2'),
         ));
+    gh.factory<_i5.PokemonRepository>(
+        () => _i5.PokemonRepository(gh<_i3.PokemonApi>()));
     return this;
   }
 }

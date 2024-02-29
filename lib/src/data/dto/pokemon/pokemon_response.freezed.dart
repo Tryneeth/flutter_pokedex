@@ -358,8 +358,8 @@ StatResponse _$StatResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StatResponse {
   @JsonKey(name: 'base_stat')
-  int? get baseStat => throw _privateConstructorUsedError;
-  int? get effort => throw _privateConstructorUsedError;
+  int get baseStat => throw _privateConstructorUsedError;
+  int get effort => throw _privateConstructorUsedError;
   @JsonKey(name: 'stat')
   ItemResponse get item => throw _privateConstructorUsedError;
 
@@ -375,8 +375,8 @@ abstract class $StatResponseCopyWith<$Res> {
       _$StatResponseCopyWithImpl<$Res, StatResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'base_stat') int? baseStat,
-      int? effort,
+      {@JsonKey(name: 'base_stat') int baseStat,
+      int effort,
       @JsonKey(name: 'stat') ItemResponse item});
 
   $ItemResponseCopyWith<$Res> get item;
@@ -395,19 +395,19 @@ class _$StatResponseCopyWithImpl<$Res, $Val extends StatResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? baseStat = freezed,
-    Object? effort = freezed,
+    Object? baseStat = null,
+    Object? effort = null,
     Object? item = null,
   }) {
     return _then(_value.copyWith(
-      baseStat: freezed == baseStat
+      baseStat: null == baseStat
           ? _value.baseStat
           : baseStat // ignore: cast_nullable_to_non_nullable
-              as int?,
-      effort: freezed == effort
+              as int,
+      effort: null == effort
           ? _value.effort
           : effort // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       item: null == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
@@ -433,8 +433,8 @@ abstract class _$$StatResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'base_stat') int? baseStat,
-      int? effort,
+      {@JsonKey(name: 'base_stat') int baseStat,
+      int effort,
       @JsonKey(name: 'stat') ItemResponse item});
 
   @override
@@ -452,19 +452,19 @@ class __$$StatResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? baseStat = freezed,
-    Object? effort = freezed,
+    Object? baseStat = null,
+    Object? effort = null,
     Object? item = null,
   }) {
     return _then(_$StatResponseImpl(
-      baseStat: freezed == baseStat
+      baseStat: null == baseStat
           ? _value.baseStat
           : baseStat // ignore: cast_nullable_to_non_nullable
-              as int?,
-      effort: freezed == effort
+              as int,
+      effort: null == effort
           ? _value.effort
           : effort // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       item: null == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
@@ -477,8 +477,8 @@ class __$$StatResponseImplCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$StatResponseImpl implements _StatResponse {
   _$StatResponseImpl(
-      {@JsonKey(name: 'base_stat') this.baseStat,
-      this.effort,
+      {@JsonKey(name: 'base_stat') required this.baseStat,
+      required this.effort,
       @JsonKey(name: 'stat') required this.item});
 
   factory _$StatResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -486,9 +486,9 @@ class _$StatResponseImpl implements _StatResponse {
 
   @override
   @JsonKey(name: 'base_stat')
-  final int? baseStat;
+  final int baseStat;
   @override
-  final int? effort;
+  final int effort;
   @override
   @JsonKey(name: 'stat')
   final ItemResponse item;
@@ -522,8 +522,8 @@ class _$StatResponseImpl implements _StatResponse {
 
 abstract class _StatResponse implements StatResponse {
   factory _StatResponse(
-          {@JsonKey(name: 'base_stat') final int? baseStat,
-          final int? effort,
+          {@JsonKey(name: 'base_stat') required final int baseStat,
+          required final int effort,
           @JsonKey(name: 'stat') required final ItemResponse item}) =
       _$StatResponseImpl;
 
@@ -532,9 +532,9 @@ abstract class _StatResponse implements StatResponse {
 
   @override
   @JsonKey(name: 'base_stat')
-  int? get baseStat;
+  int get baseStat;
   @override
-  int? get effort;
+  int get effort;
   @override
   @JsonKey(name: 'stat')
   ItemResponse get item;
@@ -550,8 +550,8 @@ TypeResponse _$TypeResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TypeResponse {
-  int? get slot => throw _privateConstructorUsedError;
-  ItemResponse? get type => throw _privateConstructorUsedError;
+  int get slot => throw _privateConstructorUsedError;
+  ItemResponse get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TypeResponseCopyWith<TypeResponse> get copyWith =>
@@ -564,9 +564,9 @@ abstract class $TypeResponseCopyWith<$Res> {
           TypeResponse value, $Res Function(TypeResponse) then) =
       _$TypeResponseCopyWithImpl<$Res, TypeResponse>;
   @useResult
-  $Res call({int? slot, ItemResponse? type});
+  $Res call({int slot, ItemResponse type});
 
-  $ItemResponseCopyWith<$Res>? get type;
+  $ItemResponseCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -582,29 +582,25 @@ class _$TypeResponseCopyWithImpl<$Res, $Val extends TypeResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slot = freezed,
-    Object? type = freezed,
+    Object? slot = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
-      slot: freezed == slot
+      slot: null == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
-              as int?,
-      type: freezed == type
+              as int,
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as ItemResponse?,
+              as ItemResponse,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ItemResponseCopyWith<$Res>? get type {
-    if (_value.type == null) {
-      return null;
-    }
-
-    return $ItemResponseCopyWith<$Res>(_value.type!, (value) {
+  $ItemResponseCopyWith<$Res> get type {
+    return $ItemResponseCopyWith<$Res>(_value.type, (value) {
       return _then(_value.copyWith(type: value) as $Val);
     });
   }
@@ -618,10 +614,10 @@ abstract class _$$TypeResponseImplCopyWith<$Res>
       __$$TypeResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? slot, ItemResponse? type});
+  $Res call({int slot, ItemResponse type});
 
   @override
-  $ItemResponseCopyWith<$Res>? get type;
+  $ItemResponseCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -635,18 +631,18 @@ class __$$TypeResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slot = freezed,
-    Object? type = freezed,
+    Object? slot = null,
+    Object? type = null,
   }) {
     return _then(_$TypeResponseImpl(
-      slot: freezed == slot
+      slot: null == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
-              as int?,
-      type: freezed == type
+              as int,
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as ItemResponse?,
+              as ItemResponse,
     ));
   }
 }
@@ -654,15 +650,15 @@ class __$$TypeResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createToJson: false)
 class _$TypeResponseImpl implements _TypeResponse {
-  _$TypeResponseImpl({this.slot, this.type});
+  _$TypeResponseImpl({required this.slot, required this.type});
 
   factory _$TypeResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$TypeResponseImplFromJson(json);
 
   @override
-  final int? slot;
+  final int slot;
   @override
-  final ItemResponse? type;
+  final ItemResponse type;
 
   @override
   String toString() {
@@ -690,16 +686,17 @@ class _$TypeResponseImpl implements _TypeResponse {
 }
 
 abstract class _TypeResponse implements TypeResponse {
-  factory _TypeResponse({final int? slot, final ItemResponse? type}) =
-      _$TypeResponseImpl;
+  factory _TypeResponse(
+      {required final int slot,
+      required final ItemResponse type}) = _$TypeResponseImpl;
 
   factory _TypeResponse.fromJson(Map<String, dynamic> json) =
       _$TypeResponseImpl.fromJson;
 
   @override
-  int? get slot;
+  int get slot;
   @override
-  ItemResponse? get type;
+  ItemResponse get type;
   @override
   @JsonKey(ignore: true)
   _$$TypeResponseImplCopyWith<_$TypeResponseImpl> get copyWith =>
