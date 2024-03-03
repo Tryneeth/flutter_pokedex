@@ -9,12 +9,14 @@ import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'mocks.dart';
 
 void main() {
+  late final DioAdapter dioAdapter;
+
   setUpAll(() => appDIInitializer());
 
   setUp(() {
     const baseUrl = 'https://pokeapi.co/api/v2';
     final dio = Dio(BaseOptions(baseUrl: baseUrl));
-    final dioAdapter = DioAdapter(dio: dio);
+    dioAdapter = DioAdapter(dio: dio);
 
     dio.httpClientAdapter = dioAdapter;
 
@@ -35,5 +37,18 @@ void main() {
 
     expect(find.text('bulbasaur'), findsOne);
     expect(find.text('ivysaur'), findsOne);
+  });
+
+  testWidgets('Error screen is shown', (WidgetTester tester) async {
+    dioAdapter.onGet(
+      '/pokemon',
+      (request) => request.reply(500, {}),
+    );
+
+    await tester.pumpWidget(const Pokedex());
+    await tester.pumpAndSettle();
+
+    expect(find.text('bulbasaur'), findsNothing);
+    expect(find.text('An error has occurred'), findsOne);
   });
 }
