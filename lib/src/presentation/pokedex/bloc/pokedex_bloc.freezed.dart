@@ -19,32 +19,38 @@ mixin _$PokedexEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
   }) {
     return load();
   }
@@ -115,6 +122,7 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
   }) {
     return load?.call();
   }
@@ -123,6 +131,7 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -135,6 +144,7 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
   }) {
     return load(this);
   }
@@ -143,6 +153,7 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
   }) {
     return load?.call(this);
   }
@@ -151,6 +162,7 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -162,6 +174,144 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
 
 abstract class _LoadPokedexEvent implements PokedexEvent {
   const factory _LoadPokedexEvent() = _$LoadPokedexEventImpl;
+}
+
+/// @nodoc
+abstract class _$$PokemonDetailsPokedexEventImplCopyWith<$Res> {
+  factory _$$PokemonDetailsPokedexEventImplCopyWith(
+          _$PokemonDetailsPokedexEventImpl value,
+          $Res Function(_$PokemonDetailsPokedexEventImpl) then) =
+      __$$PokemonDetailsPokedexEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String pokemonName});
+}
+
+/// @nodoc
+class __$$PokemonDetailsPokedexEventImplCopyWithImpl<$Res>
+    extends _$PokedexEventCopyWithImpl<$Res, _$PokemonDetailsPokedexEventImpl>
+    implements _$$PokemonDetailsPokedexEventImplCopyWith<$Res> {
+  __$$PokemonDetailsPokedexEventImplCopyWithImpl(
+      _$PokemonDetailsPokedexEventImpl _value,
+      $Res Function(_$PokemonDetailsPokedexEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pokemonName = null,
+  }) {
+    return _then(_$PokemonDetailsPokedexEventImpl(
+      null == pokemonName
+          ? _value.pokemonName
+          : pokemonName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
+  const _$PokemonDetailsPokedexEventImpl(this.pokemonName);
+
+  @override
+  final String pokemonName;
+
+  @override
+  String toString() {
+    return 'PokedexEvent.pokemonDetails(pokemonName: $pokemonName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PokemonDetailsPokedexEventImpl &&
+            (identical(other.pokemonName, pokemonName) ||
+                other.pokemonName == pokemonName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pokemonName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PokemonDetailsPokedexEventImplCopyWith<_$PokemonDetailsPokedexEventImpl>
+      get copyWith => __$$PokemonDetailsPokedexEventImplCopyWithImpl<
+          _$PokemonDetailsPokedexEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
+  }) {
+    return pokemonDetails(pokemonName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
+  }) {
+    return pokemonDetails?.call(pokemonName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (pokemonDetails != null) {
+      return pokemonDetails(pokemonName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
+  }) {
+    return pokemonDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
+  }) {
+    return pokemonDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (pokemonDetails != null) {
+      return pokemonDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PokemonDetailsPokedexEvent implements PokedexEvent {
+  const factory _PokemonDetailsPokedexEvent(final String pokemonName) =
+      _$PokemonDetailsPokedexEventImpl;
+
+  String get pokemonName;
+  @JsonKey(ignore: true)
+  _$$PokemonDetailsPokedexEventImplCopyWith<_$PokemonDetailsPokedexEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/theme/bloc/theme_bloc.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
-import 'package:flutter_pokedex/src/presentation/pokedex/pokedex_page.dart';
+import 'package:flutter_pokedex/src/core/navigation/navigation.dart';
 
 void main() {
   appDIInitializer();
@@ -14,14 +14,15 @@ class Pokedex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final router = getIt<ClientRouter>();
     return BlocProvider(
       create: (context) => getIt<ThemeBloc>(),
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
-          return MaterialApp(
+          return MaterialApp.router(
             title: 'Pokédex Code Challenge',
             theme: state.currentTheme,
-            home: const PokedexPage(),
+            routerConfig: router.config(),
           );
         },
       ),

@@ -30,7 +30,7 @@ abstract class Pokemon with _$Pokemon {
         stats: raw.stats
             ?.map(
               (e) => Stat(
-                name: StatName.values.byName(e.item.name),
+                name: StatName.values.firstWhere((v) => v.value == e.item.name ),
                 amount: e.baseStat,
               ),
             )
@@ -40,6 +40,6 @@ abstract class Pokemon with _$Pokemon {
               (e) => PokemonType.values.byName(e.type.name),
             )
             .toList(),
-        thumbnail: raw.artwork.officialArtwork.frontDefault,
+        thumbnail: raw.sprites.artwork.officialArtwork.frontDefault,
       );
 }

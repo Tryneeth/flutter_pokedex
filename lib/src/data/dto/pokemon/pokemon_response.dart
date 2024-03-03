@@ -5,6 +5,7 @@ part 'type_response.dart';
 part 'item_response.dart';
 part 'official_artwork.dart';
 part 'artwork_response.dart';
+part 'sprite_response.dart';
 
 part 'pokemon_response.freezed.dart';
 part 'pokemon_response.g.dart';
@@ -20,7 +21,7 @@ class PokemonResponse with _$PokemonResponse {
     int? order,
     List<StatResponse>? stats,
     List<TypeResponse>? types,
-    required ArtworkResponse artwork,
+    required SpritesResponse sprites,
   }) = _PokemonResponse;
 
   factory PokemonResponse.fromJson(Map<String, dynamic> json) =>

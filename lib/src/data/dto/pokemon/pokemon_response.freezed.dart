@@ -29,7 +29,7 @@ mixin _$PokemonResponse {
   int? get order => throw _privateConstructorUsedError;
   List<StatResponse>? get stats => throw _privateConstructorUsedError;
   List<TypeResponse>? get types => throw _privateConstructorUsedError;
-  ArtworkResponse get artwork => throw _privateConstructorUsedError;
+  SpritesResponse get sprites => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonResponseCopyWith<PokemonResponse> get copyWith =>
@@ -51,9 +51,9 @@ abstract class $PokemonResponseCopyWith<$Res> {
       int? order,
       List<StatResponse>? stats,
       List<TypeResponse>? types,
-      ArtworkResponse artwork});
+      SpritesResponse sprites});
 
-  $ArtworkResponseCopyWith<$Res> get artwork;
+  $SpritesResponseCopyWith<$Res> get sprites;
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$PokemonResponseCopyWithImpl<$Res, $Val extends PokemonResponse>
     Object? order = freezed,
     Object? stats = freezed,
     Object? types = freezed,
-    Object? artwork = null,
+    Object? sprites = null,
   }) {
     return _then(_value.copyWith(
       height: null == height
@@ -112,18 +112,18 @@ class _$PokemonResponseCopyWithImpl<$Res, $Val extends PokemonResponse>
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
               as List<TypeResponse>?,
-      artwork: null == artwork
-          ? _value.artwork
-          : artwork // ignore: cast_nullable_to_non_nullable
-              as ArtworkResponse,
+      sprites: null == sprites
+          ? _value.sprites
+          : sprites // ignore: cast_nullable_to_non_nullable
+              as SpritesResponse,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ArtworkResponseCopyWith<$Res> get artwork {
-    return $ArtworkResponseCopyWith<$Res>(_value.artwork, (value) {
-      return _then(_value.copyWith(artwork: value) as $Val);
+  $SpritesResponseCopyWith<$Res> get sprites {
+    return $SpritesResponseCopyWith<$Res>(_value.sprites, (value) {
+      return _then(_value.copyWith(sprites: value) as $Val);
     });
   }
 }
@@ -145,10 +145,10 @@ abstract class _$$PokemonResponseImplCopyWith<$Res>
       int? order,
       List<StatResponse>? stats,
       List<TypeResponse>? types,
-      ArtworkResponse artwork});
+      SpritesResponse sprites});
 
   @override
-  $ArtworkResponseCopyWith<$Res> get artwork;
+  $SpritesResponseCopyWith<$Res> get sprites;
 }
 
 /// @nodoc
@@ -170,7 +170,7 @@ class __$$PokemonResponseImplCopyWithImpl<$Res>
     Object? order = freezed,
     Object? stats = freezed,
     Object? types = freezed,
-    Object? artwork = null,
+    Object? sprites = null,
   }) {
     return _then(_$PokemonResponseImpl(
       height: null == height
@@ -205,10 +205,10 @@ class __$$PokemonResponseImplCopyWithImpl<$Res>
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
               as List<TypeResponse>?,
-      artwork: null == artwork
-          ? _value.artwork
-          : artwork // ignore: cast_nullable_to_non_nullable
-              as ArtworkResponse,
+      sprites: null == sprites
+          ? _value.sprites
+          : sprites // ignore: cast_nullable_to_non_nullable
+              as SpritesResponse,
     ));
   }
 }
@@ -225,7 +225,7 @@ class _$PokemonResponseImpl implements _PokemonResponse {
       this.order,
       final List<StatResponse>? stats,
       final List<TypeResponse>? types,
-      required this.artwork})
+      required this.sprites})
       : _stats = stats,
         _types = types;
 
@@ -266,11 +266,11 @@ class _$PokemonResponseImpl implements _PokemonResponse {
   }
 
   @override
-  final ArtworkResponse artwork;
+  final SpritesResponse sprites;
 
   @override
   String toString() {
-    return 'PokemonResponse(height: $height, id: $id, name: $name, weight: $weight, baseXP: $baseXP, order: $order, stats: $stats, types: $types, artwork: $artwork)';
+    return 'PokemonResponse(height: $height, id: $id, name: $name, weight: $weight, baseXP: $baseXP, order: $order, stats: $stats, types: $types, sprites: $sprites)';
   }
 
   @override
@@ -286,7 +286,7 @@ class _$PokemonResponseImpl implements _PokemonResponse {
             (identical(other.order, order) || other.order == order) &&
             const DeepCollectionEquality().equals(other._stats, _stats) &&
             const DeepCollectionEquality().equals(other._types, _types) &&
-            (identical(other.artwork, artwork) || other.artwork == artwork));
+            (identical(other.sprites, sprites) || other.sprites == sprites));
   }
 
   @JsonKey(ignore: true)
@@ -301,7 +301,7 @@ class _$PokemonResponseImpl implements _PokemonResponse {
       order,
       const DeepCollectionEquality().hash(_stats),
       const DeepCollectionEquality().hash(_types),
-      artwork);
+      sprites);
 
   @JsonKey(ignore: true)
   @override
@@ -321,7 +321,7 @@ abstract class _PokemonResponse implements PokemonResponse {
       final int? order,
       final List<StatResponse>? stats,
       final List<TypeResponse>? types,
-      required final ArtworkResponse artwork}) = _$PokemonResponseImpl;
+      required final SpritesResponse sprites}) = _$PokemonResponseImpl;
 
   factory _PokemonResponse.fromJson(Map<String, dynamic> json) =
       _$PokemonResponseImpl.fromJson;
@@ -344,7 +344,7 @@ abstract class _PokemonResponse implements PokemonResponse {
   @override
   List<TypeResponse>? get types;
   @override
-  ArtworkResponse get artwork;
+  SpritesResponse get sprites;
   @override
   @JsonKey(ignore: true)
   _$$PokemonResponseImplCopyWith<_$PokemonResponseImpl> get copyWith =>
@@ -1169,5 +1169,152 @@ abstract class _ArtworkResponse implements ArtworkResponse {
   @override
   @JsonKey(ignore: true)
   _$$ArtworkResponseImplCopyWith<_$ArtworkResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SpritesResponse _$SpritesResponseFromJson(Map<String, dynamic> json) {
+  return _SpritesResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SpritesResponse {
+  @JsonKey(name: 'other')
+  ArtworkResponse get artwork => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SpritesResponseCopyWith<SpritesResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SpritesResponseCopyWith<$Res> {
+  factory $SpritesResponseCopyWith(
+          SpritesResponse value, $Res Function(SpritesResponse) then) =
+      _$SpritesResponseCopyWithImpl<$Res, SpritesResponse>;
+  @useResult
+  $Res call({@JsonKey(name: 'other') ArtworkResponse artwork});
+
+  $ArtworkResponseCopyWith<$Res> get artwork;
+}
+
+/// @nodoc
+class _$SpritesResponseCopyWithImpl<$Res, $Val extends SpritesResponse>
+    implements $SpritesResponseCopyWith<$Res> {
+  _$SpritesResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? artwork = null,
+  }) {
+    return _then(_value.copyWith(
+      artwork: null == artwork
+          ? _value.artwork
+          : artwork // ignore: cast_nullable_to_non_nullable
+              as ArtworkResponse,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ArtworkResponseCopyWith<$Res> get artwork {
+    return $ArtworkResponseCopyWith<$Res>(_value.artwork, (value) {
+      return _then(_value.copyWith(artwork: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SpritesResponseImplCopyWith<$Res>
+    implements $SpritesResponseCopyWith<$Res> {
+  factory _$$SpritesResponseImplCopyWith(_$SpritesResponseImpl value,
+          $Res Function(_$SpritesResponseImpl) then) =
+      __$$SpritesResponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'other') ArtworkResponse artwork});
+
+  @override
+  $ArtworkResponseCopyWith<$Res> get artwork;
+}
+
+/// @nodoc
+class __$$SpritesResponseImplCopyWithImpl<$Res>
+    extends _$SpritesResponseCopyWithImpl<$Res, _$SpritesResponseImpl>
+    implements _$$SpritesResponseImplCopyWith<$Res> {
+  __$$SpritesResponseImplCopyWithImpl(
+      _$SpritesResponseImpl _value, $Res Function(_$SpritesResponseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? artwork = null,
+  }) {
+    return _then(_$SpritesResponseImpl(
+      artwork: null == artwork
+          ? _value.artwork
+          : artwork // ignore: cast_nullable_to_non_nullable
+              as ArtworkResponse,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable(createToJson: false)
+class _$SpritesResponseImpl implements _SpritesResponse {
+  _$SpritesResponseImpl({@JsonKey(name: 'other') required this.artwork});
+
+  factory _$SpritesResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SpritesResponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'other')
+  final ArtworkResponse artwork;
+
+  @override
+  String toString() {
+    return 'SpritesResponse(artwork: $artwork)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SpritesResponseImpl &&
+            (identical(other.artwork, artwork) || other.artwork == artwork));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, artwork);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SpritesResponseImplCopyWith<_$SpritesResponseImpl> get copyWith =>
+      __$$SpritesResponseImplCopyWithImpl<_$SpritesResponseImpl>(
+          this, _$identity);
+}
+
+abstract class _SpritesResponse implements SpritesResponse {
+  factory _SpritesResponse(
+          {@JsonKey(name: 'other') required final ArtworkResponse artwork}) =
+      _$SpritesResponseImpl;
+
+  factory _SpritesResponse.fromJson(Map<String, dynamic> json) =
+      _$SpritesResponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'other')
+  ArtworkResponse get artwork;
+  @override
+  @JsonKey(ignore: true)
+  _$$SpritesResponseImplCopyWith<_$SpritesResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

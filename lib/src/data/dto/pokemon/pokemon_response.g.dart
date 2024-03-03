@@ -21,8 +21,8 @@ _$PokemonResponseImpl _$$PokemonResponseImplFromJson(
       types: (json['types'] as List<dynamic>?)
           ?.map((e) => TypeResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      artwork:
-          ArtworkResponse.fromJson(json['artwork'] as Map<String, dynamic>),
+      sprites:
+          SpritesResponse.fromJson(json['sprites'] as Map<String, dynamic>),
     );
 
 _$StatResponseImpl _$$StatResponseImplFromJson(Map<String, dynamic> json) =>
@@ -56,4 +56,10 @@ _$ArtworkResponseImpl _$$ArtworkResponseImplFromJson(
     _$ArtworkResponseImpl(
       officialArtwork: OfficialArtworkResponse.fromJson(
           json['official-artwork'] as Map<String, dynamic>),
+    );
+
+_$SpritesResponseImpl _$$SpritesResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SpritesResponseImpl(
+      artwork: ArtworkResponse.fromJson(json['other'] as Map<String, dynamic>),
     );
