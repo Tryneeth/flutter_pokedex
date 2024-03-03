@@ -19,7 +19,7 @@ class _PokemonApi implements PokemonApi {
   String? baseUrl;
 
   @override
-  Future<List<ItemResponse>> getPokemonList({
+  Future<V2ResourcesListResponse<List<ItemResponse>>> getPokemonList({
     int? limit,
     int? offset,
   }) async {
@@ -31,8 +31,8 @@ class _PokemonApi implements PokemonApi {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<ItemResponse>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<V2ResourcesListResponse<List<ItemResponse>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -48,9 +48,15 @@ class _PokemonApi implements PokemonApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
-        .map((dynamic i) => ItemResponse.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = V2ResourcesListResponse<List<ItemResponse>>.fromJson(
+      _result.data!,
+      (json) => json is List<dynamic>
+          ? json
+              .map<ItemResponse>(
+                  (i) => ItemResponse.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
+    );
     return value;
   }
 

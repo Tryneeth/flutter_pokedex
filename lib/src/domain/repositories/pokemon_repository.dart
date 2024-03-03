@@ -9,10 +9,13 @@ class PokemonRepository {
 
   final PokemonApi _api;
 
-  Future<Either<Exception, List<String>>> getPokemonList() async {
+  Future<Either<Exception, List<String>>> getPokemonList({
+    int? limit,
+    int? offset,
+  }) async {
     try {
-      final response = await _api.getPokemonList();
-      return Right(response.map((e) => e.name).toList());
+      final response = await _api.getPokemonList(limit: limit, offset: offset);
+      return Right(response.results.map((e) => e.name).toList());
     } on Exception catch (e) {
       return Left(e);
     } on Error catch (e) {

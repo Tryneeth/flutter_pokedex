@@ -8,6 +8,9 @@ class GetAllPokemonsUsecase {
 
   final PokemonRepository _repository;
 
-  Future<Either<Exception, List<String>>> call() =>
-      _repository.getPokemonList();
+  Future<Either<Exception, List<String>>> call({
+    int limit = 151,
+    int offset = 0,
+  }) =>
+      _repository.getPokemonList(limit: limit, offset: offset);
 }
