@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/design_system.dart';
 import 'package:flutter_pokedex/src/domain/usecases/get_all_pokemons_usecase.dart';
-import 'package:flutter_pokedex/src/presentation/pokedex/navigator/pokedex_navigator.dart';
+import 'package:flutter_pokedex/src/presentation/navigator/pokedex_navigator.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

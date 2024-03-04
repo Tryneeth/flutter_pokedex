@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/design_system.dart';
+import 'package:flutter_pokedex/src/core/design_system/pages/portal_page.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_pokedex/src/presentation/pokedex/bloc/pokedex_bloc.dart';
 
@@ -9,7 +10,7 @@ class PokedexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PortalPage(
       appBar: AppBar(
         title: const Text('Pokedex'),
       ),

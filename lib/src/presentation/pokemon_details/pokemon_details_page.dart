@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/design_system.dart';
+import 'package:flutter_pokedex/src/core/design_system/pages/portal_page.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_pokedex/src/domain/models/pokemon.dart';
 import 'package:flutter_pokedex/src/presentation/pokemon_details/bloc/pokemon_details_bloc.dart';
@@ -21,13 +22,15 @@ class PokemonDetailsPage extends StatelessWidget {
         param1: pokemonName,
         param2: context.read<ThemeBloc>(),
       ),
-      child: Scaffold(
+      child: PortalPage(
         extendBodyBehindAppBar: true,
+        showDrawer: false,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: true,
         ),
         body: const _Content(),
-        bottomSheet: const _BottomActionBar(),
+        bottomBar: const _BottomActionBar(),
       ),
     );
   }

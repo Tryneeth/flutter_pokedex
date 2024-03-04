@@ -19,32 +19,39 @@ mixin _$CapturedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadCapturedEvent value) load,
+    required TResult Function(_PokemonDetailsCapturedEvent value)
+        pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadCapturedEvent value)? load,
+    TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadCapturedEvent value)? load,
+    TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +114,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
   }) {
     return load();
   }
@@ -115,6 +123,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
   }) {
     return load?.call();
   }
@@ -123,6 +132,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -135,6 +145,8 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadCapturedEvent value) load,
+    required TResult Function(_PokemonDetailsCapturedEvent value)
+        pokemonDetails,
   }) {
     return load(this);
   }
@@ -143,6 +155,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadCapturedEvent value)? load,
+    TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
   }) {
     return load?.call(this);
   }
@@ -151,6 +164,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadCapturedEvent value)? load,
+    TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -162,6 +176,146 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
 
 abstract class _LoadCapturedEvent implements CapturedEvent {
   const factory _LoadCapturedEvent() = _$LoadCapturedEventImpl;
+}
+
+/// @nodoc
+abstract class _$$PokemonDetailsCapturedEventImplCopyWith<$Res> {
+  factory _$$PokemonDetailsCapturedEventImplCopyWith(
+          _$PokemonDetailsCapturedEventImpl value,
+          $Res Function(_$PokemonDetailsCapturedEventImpl) then) =
+      __$$PokemonDetailsCapturedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String pokemonName});
+}
+
+/// @nodoc
+class __$$PokemonDetailsCapturedEventImplCopyWithImpl<$Res>
+    extends _$CapturedEventCopyWithImpl<$Res, _$PokemonDetailsCapturedEventImpl>
+    implements _$$PokemonDetailsCapturedEventImplCopyWith<$Res> {
+  __$$PokemonDetailsCapturedEventImplCopyWithImpl(
+      _$PokemonDetailsCapturedEventImpl _value,
+      $Res Function(_$PokemonDetailsCapturedEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pokemonName = null,
+  }) {
+    return _then(_$PokemonDetailsCapturedEventImpl(
+      null == pokemonName
+          ? _value.pokemonName
+          : pokemonName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PokemonDetailsCapturedEventImpl
+    implements _PokemonDetailsCapturedEvent {
+  const _$PokemonDetailsCapturedEventImpl(this.pokemonName);
+
+  @override
+  final String pokemonName;
+
+  @override
+  String toString() {
+    return 'CapturedEvent.pokemonDetails(pokemonName: $pokemonName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PokemonDetailsCapturedEventImpl &&
+            (identical(other.pokemonName, pokemonName) ||
+                other.pokemonName == pokemonName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pokemonName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PokemonDetailsCapturedEventImplCopyWith<_$PokemonDetailsCapturedEventImpl>
+      get copyWith => __$$PokemonDetailsCapturedEventImplCopyWithImpl<
+          _$PokemonDetailsCapturedEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
+  }) {
+    return pokemonDetails(pokemonName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
+  }) {
+    return pokemonDetails?.call(pokemonName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (pokemonDetails != null) {
+      return pokemonDetails(pokemonName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadCapturedEvent value) load,
+    required TResult Function(_PokemonDetailsCapturedEvent value)
+        pokemonDetails,
+  }) {
+    return pokemonDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadCapturedEvent value)? load,
+    TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+  }) {
+    return pokemonDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadCapturedEvent value)? load,
+    TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (pokemonDetails != null) {
+      return pokemonDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PokemonDetailsCapturedEvent implements CapturedEvent {
+  const factory _PokemonDetailsCapturedEvent(final String pokemonName) =
+      _$PokemonDetailsCapturedEventImpl;
+
+  String get pokemonName;
+  @JsonKey(ignore: true)
+  _$$PokemonDetailsCapturedEventImplCopyWith<_$PokemonDetailsCapturedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
