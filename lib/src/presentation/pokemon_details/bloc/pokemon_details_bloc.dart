@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_pokedex/src/domain/models/pokemon.dart';
 import 'package:flutter_pokedex/src/domain/usecases/get_captured_pokemon_usecase.dart';
 import 'package:flutter_pokedex/src/domain/usecases/get_pokemon_details_usecase.dart';
+import 'package:flutter_pokedex/src/domain/usecases/remove_captured_pokemon_usecase.dart';
 import 'package:flutter_pokedex/src/domain/usecases/save_captured_pokemon_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,13 +18,15 @@ class PokemonDetailsBloc
     this._getPokemonDetailsUsecase,
     this._saveCapturedPokemonUsecase,
     this._getCapturedPokemonUsecase,
+    this._removeCapturedPokemonUsecase,
     @factoryParam String pokemonName,
   )   : _pokemonName = pokemonName,
         super(const PokemonDetailsState.initial()) {
     on<PokemonDetailsEvent>(
       (event, emit) => event.map(
         load: (_) => _onLoad(emit),
-        capture: (event) => _onCapture(emit, event),
+        capture: (_) => _onCapture(emit),
+        release: (_) => _onRelease(emit),
       ),
     );
 
@@ -33,6 +36,7 @@ class PokemonDetailsBloc
   final GetPokemonDetailsUsecase _getPokemonDetailsUsecase;
   final SaveCapturedPokemonUsecase _saveCapturedPokemonUsecase;
   final GetCapturedPokemonUsecase _getCapturedPokemonUsecase;
+  final RemoveCapturedPokemonUsecase _removeCapturedPokemonUsecase;
   final String _pokemonName;
 
   Future<void> _onLoad(
@@ -60,7 +64,6 @@ class PokemonDetailsBloc
 
   Future<void> _onCapture(
     Emitter<PokemonDetailsState> emit,
-    _CapturePokemonDetailsEvent event,
   ) async {
     final contentState = state.mapOrNull(
       content: (value) => value,
@@ -69,13 +72,33 @@ class PokemonDetailsBloc
       return;
     }
 
-    emit(contentState.copyWith(capturing: true));
+    emit(contentState.copyWith(processing: true));
     final response = await _saveCapturedPokemonUsecase(contentState.pokemon);
 
     response.fold(
       (left) => emit(PokemonDetailsState.error(left)),
       (right) =>
-          emit(contentState.copyWith(capturing: false, isCaptured: true)),
+          emit(contentState.copyWith(processing: false, isCaptured: true)),
+    );
+  }
+
+  Future<void> _onRelease(Emitter<PokemonDetailsState> emit) async {
+    final contentState = state.mapOrNull(
+      content: (value) => value,
+    );
+    if (contentState == null) {
+      return;
+    }
+
+    emit(contentState.copyWith(processing: true));
+    final response = await _removeCapturedPokemonUsecase(
+      contentState.pokemon.name,
+    );
+
+    response.fold(
+      (left) => emit(PokemonDetailsState.error(left)),
+      (right) =>
+          emit(contentState.copyWith(processing: false, isCaptured: false)),
     );
   }
 }

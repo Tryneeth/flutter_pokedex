@@ -18,16 +18,13 @@ class PokemonDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<PokemonDetailsBloc>(param1: pokemonName),
-      child: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-          ),
-          body: const _Content(),
-          bottomSheet: const _BottomActionBar(),
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
         ),
+        body: const _Content(),
+        bottomSheet: const _BottomActionBar(),
       ),
     );
   }
@@ -48,10 +45,12 @@ class _BottomActionBar extends StatelessWidget {
             : BottomBar(
                 bottomBar: PrimaryButton.responsive(
                   title: contentState.isCaptured ? 'Release' : 'Capture',
-                  isLoading: contentState.capturing,
-                  onPressed: () => context
-                      .read<PokemonDetailsBloc>()
-                      .add(const PokemonDetailsEvent.capture()),
+                  isLoading: contentState.processing,
+                  onPressed: () => context.read<PokemonDetailsBloc>().add(
+                        contentState.isCaptured
+                            ? const PokemonDetailsEvent.release()
+                            : const PokemonDetailsEvent.capture(),
+                      ),
                 ),
               );
       },

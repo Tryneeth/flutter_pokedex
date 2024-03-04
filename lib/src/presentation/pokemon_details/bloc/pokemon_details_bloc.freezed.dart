@@ -20,18 +20,21 @@ mixin _$PokemonDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function() capture,
+    required TResult Function() release,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function()? capture,
+    TResult? Function()? release,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function()? capture,
+    TResult Function()? release,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$PokemonDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokemonDetailsEvent value) load,
     required TResult Function(_CapturePokemonDetailsEvent value) capture,
+    required TResult Function(_ReleasePokemonDetailsEvent value) release,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokemonDetailsEvent value)? load,
     TResult? Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult? Function(_ReleasePokemonDetailsEvent value)? release,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokemonDetailsEvent value)? load,
     TResult Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult Function(_ReleasePokemonDetailsEvent value)? release,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +124,7 @@ class _$LoadPokemonDetailsEventImpl implements _LoadPokemonDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function() capture,
+    required TResult Function() release,
   }) {
     return load();
   }
@@ -127,6 +134,7 @@ class _$LoadPokemonDetailsEventImpl implements _LoadPokemonDetailsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function()? capture,
+    TResult? Function()? release,
   }) {
     return load?.call();
   }
@@ -136,6 +144,7 @@ class _$LoadPokemonDetailsEventImpl implements _LoadPokemonDetailsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function()? capture,
+    TResult Function()? release,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -149,6 +158,7 @@ class _$LoadPokemonDetailsEventImpl implements _LoadPokemonDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokemonDetailsEvent value) load,
     required TResult Function(_CapturePokemonDetailsEvent value) capture,
+    required TResult Function(_ReleasePokemonDetailsEvent value) release,
   }) {
     return load(this);
   }
@@ -158,6 +168,7 @@ class _$LoadPokemonDetailsEventImpl implements _LoadPokemonDetailsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokemonDetailsEvent value)? load,
     TResult? Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult? Function(_ReleasePokemonDetailsEvent value)? release,
   }) {
     return load?.call(this);
   }
@@ -167,6 +178,7 @@ class _$LoadPokemonDetailsEventImpl implements _LoadPokemonDetailsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokemonDetailsEvent value)? load,
     TResult Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult Function(_ReleasePokemonDetailsEvent value)? release,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -224,6 +236,7 @@ class _$CapturePokemonDetailsEventImpl implements _CapturePokemonDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function() capture,
+    required TResult Function() release,
   }) {
     return capture();
   }
@@ -233,6 +246,7 @@ class _$CapturePokemonDetailsEventImpl implements _CapturePokemonDetailsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function()? capture,
+    TResult? Function()? release,
   }) {
     return capture?.call();
   }
@@ -242,6 +256,7 @@ class _$CapturePokemonDetailsEventImpl implements _CapturePokemonDetailsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function()? capture,
+    TResult Function()? release,
     required TResult orElse(),
   }) {
     if (capture != null) {
@@ -255,6 +270,7 @@ class _$CapturePokemonDetailsEventImpl implements _CapturePokemonDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokemonDetailsEvent value) load,
     required TResult Function(_CapturePokemonDetailsEvent value) capture,
+    required TResult Function(_ReleasePokemonDetailsEvent value) release,
   }) {
     return capture(this);
   }
@@ -264,6 +280,7 @@ class _$CapturePokemonDetailsEventImpl implements _CapturePokemonDetailsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokemonDetailsEvent value)? load,
     TResult? Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult? Function(_ReleasePokemonDetailsEvent value)? release,
   }) {
     return capture?.call(this);
   }
@@ -273,6 +290,7 @@ class _$CapturePokemonDetailsEventImpl implements _CapturePokemonDetailsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokemonDetailsEvent value)? load,
     TResult Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult Function(_ReleasePokemonDetailsEvent value)? release,
     required TResult orElse(),
   }) {
     if (capture != null) {
@@ -288,12 +306,125 @@ abstract class _CapturePokemonDetailsEvent implements PokemonDetailsEvent {
 }
 
 /// @nodoc
+abstract class _$$ReleasePokemonDetailsEventImplCopyWith<$Res> {
+  factory _$$ReleasePokemonDetailsEventImplCopyWith(
+          _$ReleasePokemonDetailsEventImpl value,
+          $Res Function(_$ReleasePokemonDetailsEventImpl) then) =
+      __$$ReleasePokemonDetailsEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReleasePokemonDetailsEventImplCopyWithImpl<$Res>
+    extends _$PokemonDetailsEventCopyWithImpl<$Res,
+        _$ReleasePokemonDetailsEventImpl>
+    implements _$$ReleasePokemonDetailsEventImplCopyWith<$Res> {
+  __$$ReleasePokemonDetailsEventImplCopyWithImpl(
+      _$ReleasePokemonDetailsEventImpl _value,
+      $Res Function(_$ReleasePokemonDetailsEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ReleasePokemonDetailsEventImpl implements _ReleasePokemonDetailsEvent {
+  const _$ReleasePokemonDetailsEventImpl();
+
+  @override
+  String toString() {
+    return 'PokemonDetailsEvent.release()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReleasePokemonDetailsEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() capture,
+    required TResult Function() release,
+  }) {
+    return release();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? capture,
+    TResult? Function()? release,
+  }) {
+    return release?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? capture,
+    TResult Function()? release,
+    required TResult orElse(),
+  }) {
+    if (release != null) {
+      return release();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPokemonDetailsEvent value) load,
+    required TResult Function(_CapturePokemonDetailsEvent value) capture,
+    required TResult Function(_ReleasePokemonDetailsEvent value) release,
+  }) {
+    return release(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPokemonDetailsEvent value)? load,
+    TResult? Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult? Function(_ReleasePokemonDetailsEvent value)? release,
+  }) {
+    return release?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPokemonDetailsEvent value)? load,
+    TResult Function(_CapturePokemonDetailsEvent value)? capture,
+    TResult Function(_ReleasePokemonDetailsEvent value)? release,
+    required TResult orElse(),
+  }) {
+    if (release != null) {
+      return release(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReleasePokemonDetailsEvent implements PokemonDetailsEvent {
+  const factory _ReleasePokemonDetailsEvent() =
+      _$ReleasePokemonDetailsEventImpl;
+}
+
+/// @nodoc
 mixin _$PokemonDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)
+    required TResult Function(Pokemon pokemon, bool isCaptured, bool processing)
         content,
     required TResult Function(Exception error) error,
   }) =>
@@ -302,7 +433,7 @@ mixin _$PokemonDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Pokemon pokemon, bool isCaptured, bool capturing)?
+    TResult? Function(Pokemon pokemon, bool isCaptured, bool processing)?
         content,
     TResult? Function(Exception error)? error,
   }) =>
@@ -311,7 +442,8 @@ mixin _$PokemonDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)? content,
+    TResult Function(Pokemon pokemon, bool isCaptured, bool processing)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) =>
@@ -405,7 +537,7 @@ class _$InitialPokemonDetailsStateImpl implements _InitialPokemonDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)
+    required TResult Function(Pokemon pokemon, bool isCaptured, bool processing)
         content,
     required TResult Function(Exception error) error,
   }) {
@@ -417,7 +549,7 @@ class _$InitialPokemonDetailsStateImpl implements _InitialPokemonDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Pokemon pokemon, bool isCaptured, bool capturing)?
+    TResult? Function(Pokemon pokemon, bool isCaptured, bool processing)?
         content,
     TResult? Function(Exception error)? error,
   }) {
@@ -429,7 +561,8 @@ class _$InitialPokemonDetailsStateImpl implements _InitialPokemonDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)? content,
+    TResult Function(Pokemon pokemon, bool isCaptured, bool processing)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -526,7 +659,7 @@ class _$LoadingPokemonDetailsStateImpl implements _LoadingPokemonDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)
+    required TResult Function(Pokemon pokemon, bool isCaptured, bool processing)
         content,
     required TResult Function(Exception error) error,
   }) {
@@ -538,7 +671,7 @@ class _$LoadingPokemonDetailsStateImpl implements _LoadingPokemonDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Pokemon pokemon, bool isCaptured, bool capturing)?
+    TResult? Function(Pokemon pokemon, bool isCaptured, bool processing)?
         content,
     TResult? Function(Exception error)? error,
   }) {
@@ -550,7 +683,8 @@ class _$LoadingPokemonDetailsStateImpl implements _LoadingPokemonDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)? content,
+    TResult Function(Pokemon pokemon, bool isCaptured, bool processing)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -610,7 +744,7 @@ abstract class _$$ContentPokemonDetailsStateImplCopyWith<$Res> {
           $Res Function(_$ContentPokemonDetailsStateImpl) then) =
       __$$ContentPokemonDetailsStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Pokemon pokemon, bool isCaptured, bool capturing});
+  $Res call({Pokemon pokemon, bool isCaptured, bool processing});
 
   $PokemonCopyWith<$Res> get pokemon;
 }
@@ -630,7 +764,7 @@ class __$$ContentPokemonDetailsStateImplCopyWithImpl<$Res>
   $Res call({
     Object? pokemon = null,
     Object? isCaptured = null,
-    Object? capturing = null,
+    Object? processing = null,
   }) {
     return _then(_$ContentPokemonDetailsStateImpl(
       pokemon: null == pokemon
@@ -641,9 +775,9 @@ class __$$ContentPokemonDetailsStateImplCopyWithImpl<$Res>
           ? _value.isCaptured
           : isCaptured // ignore: cast_nullable_to_non_nullable
               as bool,
-      capturing: null == capturing
-          ? _value.capturing
-          : capturing // ignore: cast_nullable_to_non_nullable
+      processing: null == processing
+          ? _value.processing
+          : processing // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -661,7 +795,9 @@ class __$$ContentPokemonDetailsStateImplCopyWithImpl<$Res>
 
 class _$ContentPokemonDetailsStateImpl implements _ContentPokemonDetailsState {
   const _$ContentPokemonDetailsStateImpl(
-      {required this.pokemon, this.isCaptured = false, this.capturing = false});
+      {required this.pokemon,
+      this.isCaptured = false,
+      this.processing = false});
 
   @override
   final Pokemon pokemon;
@@ -670,11 +806,11 @@ class _$ContentPokemonDetailsStateImpl implements _ContentPokemonDetailsState {
   final bool isCaptured;
   @override
   @JsonKey()
-  final bool capturing;
+  final bool processing;
 
   @override
   String toString() {
-    return 'PokemonDetailsState.content(pokemon: $pokemon, isCaptured: $isCaptured, capturing: $capturing)';
+    return 'PokemonDetailsState.content(pokemon: $pokemon, isCaptured: $isCaptured, processing: $processing)';
   }
 
   @override
@@ -685,12 +821,12 @@ class _$ContentPokemonDetailsStateImpl implements _ContentPokemonDetailsState {
             (identical(other.pokemon, pokemon) || other.pokemon == pokemon) &&
             (identical(other.isCaptured, isCaptured) ||
                 other.isCaptured == isCaptured) &&
-            (identical(other.capturing, capturing) ||
-                other.capturing == capturing));
+            (identical(other.processing, processing) ||
+                other.processing == processing));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pokemon, isCaptured, capturing);
+  int get hashCode => Object.hash(runtimeType, pokemon, isCaptured, processing);
 
   @JsonKey(ignore: true)
   @override
@@ -704,11 +840,11 @@ class _$ContentPokemonDetailsStateImpl implements _ContentPokemonDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)
+    required TResult Function(Pokemon pokemon, bool isCaptured, bool processing)
         content,
     required TResult Function(Exception error) error,
   }) {
-    return content(pokemon, isCaptured, capturing);
+    return content(pokemon, isCaptured, processing);
   }
 
   @override
@@ -716,11 +852,11 @@ class _$ContentPokemonDetailsStateImpl implements _ContentPokemonDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Pokemon pokemon, bool isCaptured, bool capturing)?
+    TResult? Function(Pokemon pokemon, bool isCaptured, bool processing)?
         content,
     TResult? Function(Exception error)? error,
   }) {
-    return content?.call(pokemon, isCaptured, capturing);
+    return content?.call(pokemon, isCaptured, processing);
   }
 
   @override
@@ -728,12 +864,13 @@ class _$ContentPokemonDetailsStateImpl implements _ContentPokemonDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)? content,
+    TResult Function(Pokemon pokemon, bool isCaptured, bool processing)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(pokemon, isCaptured, capturing);
+      return content(pokemon, isCaptured, processing);
     }
     return orElse();
   }
@@ -780,11 +917,11 @@ abstract class _ContentPokemonDetailsState implements PokemonDetailsState {
   const factory _ContentPokemonDetailsState(
       {required final Pokemon pokemon,
       final bool isCaptured,
-      final bool capturing}) = _$ContentPokemonDetailsStateImpl;
+      final bool processing}) = _$ContentPokemonDetailsStateImpl;
 
   Pokemon get pokemon;
   bool get isCaptured;
-  bool get capturing;
+  bool get processing;
   @JsonKey(ignore: true)
   _$$ContentPokemonDetailsStateImplCopyWith<_$ContentPokemonDetailsStateImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -860,7 +997,7 @@ class _$ErrorPokemonDetailsStateImpl implements _ErrorPokemonDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)
+    required TResult Function(Pokemon pokemon, bool isCaptured, bool processing)
         content,
     required TResult Function(Exception error) error,
   }) {
@@ -872,7 +1009,7 @@ class _$ErrorPokemonDetailsStateImpl implements _ErrorPokemonDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Pokemon pokemon, bool isCaptured, bool capturing)?
+    TResult? Function(Pokemon pokemon, bool isCaptured, bool processing)?
         content,
     TResult? Function(Exception error)? error,
   }) {
@@ -884,7 +1021,8 @@ class _$ErrorPokemonDetailsStateImpl implements _ErrorPokemonDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Pokemon pokemon, bool isCaptured, bool capturing)? content,
+    TResult Function(Pokemon pokemon, bool isCaptured, bool processing)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {

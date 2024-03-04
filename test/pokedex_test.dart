@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_pokedex/main.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 
 import 'utils/mocks.dart';
@@ -15,7 +17,11 @@ void main() {
   late final DioAdapter dioAdapter;
   dioAdapter = DioAdapter(dio: dio);
 
-  setUpAll(() => appDIInitializer());
+  setUpAll(() async {
+    var path = Directory.current.path;
+    Hive.init('$path/test/hive_testing_path');
+    appDIInitializer();
+  });
 
   setUp(() {
     dio.httpClientAdapter = dioAdapter;

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_pokedex/src/domain/models/hive_adapters/hive_pokemon.dart';
 import 'package:flutter_pokedex/src/domain/models/pokemon_type.dart';
@@ -12,15 +13,19 @@ abstract class DioProvider {
   @singleton
   Dio dio() {
     Dio dio = Dio();
-    if (kDebugMode) {
-      dio.interceptors.add(
-        PrettyDioLogger(
-          responseBody: true,
-          requestBody: true,
+    return dio
+      ..interceptors.addAll([
+        DioCacheInterceptor(
+          options: CacheOptions(
+            store: MemCacheStore(),
+          ),
         ),
-      );
-    }
-    return dio;
+        if (kDebugMode)
+          PrettyDioLogger(
+            responseBody: true,
+            requestBody: true,
+          ),
+      ]);
   }
 }
 

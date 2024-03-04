@@ -4,4 +4,5 @@ part of 'pokemon_details_bloc.dart';
 class PokemonDetailsEvent with _$PokemonDetailsEvent {
   const factory PokemonDetailsEvent.load() = _LoadPokemonDetailsEvent;
   const factory PokemonDetailsEvent.capture() = _CapturePokemonDetailsEvent;
+  const factory PokemonDetailsEvent.release() = _ReleasePokemonDetailsEvent;
 }
