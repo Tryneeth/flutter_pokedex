@@ -1,5 +1,4 @@
 import 'package:either_dart/either.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_pokedex/src/data/providers/pokemon_api.dart';
 import 'package:flutter_pokedex/src/domain/models/pokemon.dart';
 import 'package:flutter_pokedex/src/utils/repository_helper_mixin.dart';
@@ -15,8 +14,7 @@ class PokemonRepository with RepositoryHelperMixin {
     int? limit,
     int? offset,
   }) =>
-      compute(
-        fromAsync,
+      isolatedFromAsync(
         () => _api
             .getPokemonList(limit: limit, offset: offset)
             .then((value) => value.results.map((e) => e.name).toList()),
@@ -25,8 +23,7 @@ class PokemonRepository with RepositoryHelperMixin {
   Future<Either<Exception, Pokemon>> getPokemonByNameOrId(
     String nameOrId,
   ) =>
-      compute(
-        fromAsync,
+      isolatedFromAsync(
         () => _api
             .getPokemonByNameOrId(nameOrId: nameOrId)
             .then((value) => Pokemon.fromApiResponse(value)),

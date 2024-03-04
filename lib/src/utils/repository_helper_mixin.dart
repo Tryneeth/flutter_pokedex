@@ -1,4 +1,5 @@
 import 'package:either_dart/either.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:logger/logger.dart';
 
@@ -36,4 +37,9 @@ mixin RepositoryHelperMixin {
       return Left(Exception('${e.runtimeType}: ${e.stackTrace}'));
     }
   }
+
+  Future<Either<Exception, T>> isolatedFromAsync<T>(
+    Future<T> Function() func,
+  ) =>
+      compute(fromAsync, func);
 }
