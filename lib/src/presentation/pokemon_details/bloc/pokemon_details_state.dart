@@ -9,7 +9,7 @@ class PokemonDetailsState with _$PokemonDetailsState {
   const factory PokemonDetailsState.content({
     required Pokemon pokemon,
   }) = _ContentPokemonDetailsState;
-  
+
   const factory PokemonDetailsState.error(Exception error) =
       _ErrorPokemonDetailsState;
 }

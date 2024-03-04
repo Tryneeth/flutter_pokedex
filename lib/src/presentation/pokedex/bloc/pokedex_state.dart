@@ -9,7 +9,6 @@ class PokedexState with _$PokedexState {
   const factory PokedexState.content({
     required List<String> names,
   }) = _ContentPokedexState;
-  
-  const factory PokedexState.error(Exception error) =
-      _ErrorPokedexState;
+
+  const factory PokedexState.error(Exception error) = _ErrorPokedexState;
 }

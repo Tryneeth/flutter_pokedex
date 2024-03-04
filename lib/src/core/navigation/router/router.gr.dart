@@ -22,7 +22,10 @@ abstract class _$ClientRouter extends RootStackRouter {
       );
     },
     PokemonDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<PokemonDetailsRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<PokemonDetailsRouteArgs>(
+          orElse: () => PokemonDetailsRouteArgs(
+              pokemonName: pathParams.getString('pokemonName')));
       return AutoRoutePage<void>(
         routeData: routeData,
         child: PokemonDetailsScreen(
@@ -61,6 +64,7 @@ class PokemonDetailsRoute extends PageRouteInfo<PokemonDetailsRouteArgs> {
             key: key,
             pokemonName: pokemonName,
           ),
+          rawPathParams: {'pokemonName': pokemonName},
           initialChildren: children,
         );
 

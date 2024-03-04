@@ -7,15 +7,25 @@ part 'wrappers.dart';
 
 final pokedexRoutes = [
   _pokedex,
-  _pokemonDetails,
+  ..._pokemonDetails,
+  _wildcard,
 ];
 
 final _pokedex = AutoRoute(
   path: '/',
+  initial: true,
   page: PokedexRoute.page,
 );
 
-final _pokemonDetails = AutoRoute(
-  path: '/details',
-  page: PokemonDetailsRoute.page,
-);
+final _pokemonDetails = <AutoRoute>[
+  RedirectRoute(
+    path: '/:pokemonName',
+    redirectTo: '/:pokemonName/details',
+  ),
+  AutoRoute(
+    path: '/:pokemonName/details',
+    page: PokemonDetailsRoute.page,
+  ),
+];
+
+final _wildcard = RedirectRoute(path: '*', redirectTo: '/');

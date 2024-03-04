@@ -18,9 +18,9 @@ class PokemonResponse with _$PokemonResponse {
     required String name,
     required int weight,
     @JsonKey(name: 'base_experience') required int baseXP,
-    int? order,
-    List<StatResponse>? stats,
-    List<TypeResponse>? types,
+    required int order,
+    required List<StatResponse> stats,
+    required List<TypeResponse> types,
     required SpritesResponse sprites,
   }) = _PokemonResponse;
 

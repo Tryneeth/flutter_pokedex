@@ -1,4 +1,3 @@
-
 part of 'routes.dart';
 
 @RoutePage<void>()
@@ -8,5 +7,8 @@ class PokedexScreen extends PokedexPage {
 
 @RoutePage<void>()
 class PokemonDetailsScreen extends PokemonDetailsPage {
-  const PokemonDetailsScreen({super.key, required super.pokemonName});
+  const PokemonDetailsScreen({
+    super.key,
+    @PathParam('pokemonName') required super.pokemonName,
+  });
 }
