@@ -24,7 +24,35 @@ class PokemonDetailsPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
         ),
         body: const _Content(),
+        bottomSheet: const _BottomActionBar(),
       ),
+    );
+  }
+}
+
+class _BottomActionBar extends StatelessWidget {
+  const _BottomActionBar();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocSelector<PokemonDetailsBloc, PokemonDetailsState, bool>(
+      selector: (state) {
+        return state.maybeMap(content: (_) => true ,orElse: () => false);
+      },
+      builder: (context, state) {
+        return state ? BottomBar(
+          bottomBar: Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  child: const Text('Capture'),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+        ) : const SizedBox.shrink();
+      },
     );
   }
 }
