@@ -13,5 +13,9 @@ void appDIInitializer() {
       'https://pokeapi.co/api/v2',
       instanceName: ApiDiParameterName.baseUrlV2,
     )
+    ..registerSingleton(
+      'HivePokemon',
+      instanceName: ApiDiParameterName.pokemonHiveId,
+    )
     ..init();
 }

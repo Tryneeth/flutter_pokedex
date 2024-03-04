@@ -5,8 +5,8 @@ part 'stat.freezed.dart';
 
 @freezed
 abstract class Stat with _$Stat {
-   const factory Stat({
+  const factory Stat({
     required StatName name,
     required int amount,
-   }) = _Stat;
+  }) = _Stat;
 }

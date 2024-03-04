@@ -26,10 +26,10 @@ mixin _$PokemonResponse {
   int get weight => throw _privateConstructorUsedError;
   @JsonKey(name: 'base_experience')
   int get baseXP => throw _privateConstructorUsedError;
-  int? get order => throw _privateConstructorUsedError;
-  List<StatResponse>? get stats => throw _privateConstructorUsedError;
-  List<TypeResponse>? get types => throw _privateConstructorUsedError;
-  ArtworkResponse get artwork => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
+  List<StatResponse> get stats => throw _privateConstructorUsedError;
+  List<TypeResponse> get types => throw _privateConstructorUsedError;
+  SpritesResponse get sprites => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonResponseCopyWith<PokemonResponse> get copyWith =>
@@ -48,12 +48,12 @@ abstract class $PokemonResponseCopyWith<$Res> {
       String name,
       int weight,
       @JsonKey(name: 'base_experience') int baseXP,
-      int? order,
-      List<StatResponse>? stats,
-      List<TypeResponse>? types,
-      ArtworkResponse artwork});
+      int order,
+      List<StatResponse> stats,
+      List<TypeResponse> types,
+      SpritesResponse sprites});
 
-  $ArtworkResponseCopyWith<$Res> get artwork;
+  $SpritesResponseCopyWith<$Res> get sprites;
 }
 
 /// @nodoc
@@ -74,10 +74,10 @@ class _$PokemonResponseCopyWithImpl<$Res, $Val extends PokemonResponse>
     Object? name = null,
     Object? weight = null,
     Object? baseXP = null,
-    Object? order = freezed,
-    Object? stats = freezed,
-    Object? types = freezed,
-    Object? artwork = null,
+    Object? order = null,
+    Object? stats = null,
+    Object? types = null,
+    Object? sprites = null,
   }) {
     return _then(_value.copyWith(
       height: null == height
@@ -100,30 +100,30 @@ class _$PokemonResponseCopyWithImpl<$Res, $Val extends PokemonResponse>
           ? _value.baseXP
           : baseXP // ignore: cast_nullable_to_non_nullable
               as int,
-      order: freezed == order
+      order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as int?,
-      stats: freezed == stats
+              as int,
+      stats: null == stats
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as List<StatResponse>?,
-      types: freezed == types
+              as List<StatResponse>,
+      types: null == types
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
-              as List<TypeResponse>?,
-      artwork: null == artwork
-          ? _value.artwork
-          : artwork // ignore: cast_nullable_to_non_nullable
-              as ArtworkResponse,
+              as List<TypeResponse>,
+      sprites: null == sprites
+          ? _value.sprites
+          : sprites // ignore: cast_nullable_to_non_nullable
+              as SpritesResponse,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ArtworkResponseCopyWith<$Res> get artwork {
-    return $ArtworkResponseCopyWith<$Res>(_value.artwork, (value) {
-      return _then(_value.copyWith(artwork: value) as $Val);
+  $SpritesResponseCopyWith<$Res> get sprites {
+    return $SpritesResponseCopyWith<$Res>(_value.sprites, (value) {
+      return _then(_value.copyWith(sprites: value) as $Val);
     });
   }
 }
@@ -142,13 +142,13 @@ abstract class _$$PokemonResponseImplCopyWith<$Res>
       String name,
       int weight,
       @JsonKey(name: 'base_experience') int baseXP,
-      int? order,
-      List<StatResponse>? stats,
-      List<TypeResponse>? types,
-      ArtworkResponse artwork});
+      int order,
+      List<StatResponse> stats,
+      List<TypeResponse> types,
+      SpritesResponse sprites});
 
   @override
-  $ArtworkResponseCopyWith<$Res> get artwork;
+  $SpritesResponseCopyWith<$Res> get sprites;
 }
 
 /// @nodoc
@@ -167,10 +167,10 @@ class __$$PokemonResponseImplCopyWithImpl<$Res>
     Object? name = null,
     Object? weight = null,
     Object? baseXP = null,
-    Object? order = freezed,
-    Object? stats = freezed,
-    Object? types = freezed,
-    Object? artwork = null,
+    Object? order = null,
+    Object? stats = null,
+    Object? types = null,
+    Object? sprites = null,
   }) {
     return _then(_$PokemonResponseImpl(
       height: null == height
@@ -193,22 +193,22 @@ class __$$PokemonResponseImplCopyWithImpl<$Res>
           ? _value.baseXP
           : baseXP // ignore: cast_nullable_to_non_nullable
               as int,
-      order: freezed == order
+      order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as int?,
-      stats: freezed == stats
+              as int,
+      stats: null == stats
           ? _value._stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as List<StatResponse>?,
-      types: freezed == types
+              as List<StatResponse>,
+      types: null == types
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
-              as List<TypeResponse>?,
-      artwork: null == artwork
-          ? _value.artwork
-          : artwork // ignore: cast_nullable_to_non_nullable
-              as ArtworkResponse,
+              as List<TypeResponse>,
+      sprites: null == sprites
+          ? _value.sprites
+          : sprites // ignore: cast_nullable_to_non_nullable
+              as SpritesResponse,
     ));
   }
 }
@@ -222,10 +222,10 @@ class _$PokemonResponseImpl implements _PokemonResponse {
       required this.name,
       required this.weight,
       @JsonKey(name: 'base_experience') required this.baseXP,
-      this.order,
-      final List<StatResponse>? stats,
-      final List<TypeResponse>? types,
-      required this.artwork})
+      required this.order,
+      required final List<StatResponse> stats,
+      required final List<TypeResponse> types,
+      required this.sprites})
       : _stats = stats,
         _types = types;
 
@@ -244,33 +244,29 @@ class _$PokemonResponseImpl implements _PokemonResponse {
   @JsonKey(name: 'base_experience')
   final int baseXP;
   @override
-  final int? order;
-  final List<StatResponse>? _stats;
+  final int order;
+  final List<StatResponse> _stats;
   @override
-  List<StatResponse>? get stats {
-    final value = _stats;
-    if (value == null) return null;
+  List<StatResponse> get stats {
     if (_stats is EqualUnmodifiableListView) return _stats;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_stats);
   }
 
-  final List<TypeResponse>? _types;
+  final List<TypeResponse> _types;
   @override
-  List<TypeResponse>? get types {
-    final value = _types;
-    if (value == null) return null;
+  List<TypeResponse> get types {
     if (_types is EqualUnmodifiableListView) return _types;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_types);
   }
 
   @override
-  final ArtworkResponse artwork;
+  final SpritesResponse sprites;
 
   @override
   String toString() {
-    return 'PokemonResponse(height: $height, id: $id, name: $name, weight: $weight, baseXP: $baseXP, order: $order, stats: $stats, types: $types, artwork: $artwork)';
+    return 'PokemonResponse(height: $height, id: $id, name: $name, weight: $weight, baseXP: $baseXP, order: $order, stats: $stats, types: $types, sprites: $sprites)';
   }
 
   @override
@@ -286,7 +282,7 @@ class _$PokemonResponseImpl implements _PokemonResponse {
             (identical(other.order, order) || other.order == order) &&
             const DeepCollectionEquality().equals(other._stats, _stats) &&
             const DeepCollectionEquality().equals(other._types, _types) &&
-            (identical(other.artwork, artwork) || other.artwork == artwork));
+            (identical(other.sprites, sprites) || other.sprites == sprites));
   }
 
   @JsonKey(ignore: true)
@@ -301,7 +297,7 @@ class _$PokemonResponseImpl implements _PokemonResponse {
       order,
       const DeepCollectionEquality().hash(_stats),
       const DeepCollectionEquality().hash(_types),
-      artwork);
+      sprites);
 
   @JsonKey(ignore: true)
   @override
@@ -318,10 +314,10 @@ abstract class _PokemonResponse implements PokemonResponse {
       required final String name,
       required final int weight,
       @JsonKey(name: 'base_experience') required final int baseXP,
-      final int? order,
-      final List<StatResponse>? stats,
-      final List<TypeResponse>? types,
-      required final ArtworkResponse artwork}) = _$PokemonResponseImpl;
+      required final int order,
+      required final List<StatResponse> stats,
+      required final List<TypeResponse> types,
+      required final SpritesResponse sprites}) = _$PokemonResponseImpl;
 
   factory _PokemonResponse.fromJson(Map<String, dynamic> json) =
       _$PokemonResponseImpl.fromJson;
@@ -338,13 +334,13 @@ abstract class _PokemonResponse implements PokemonResponse {
   @JsonKey(name: 'base_experience')
   int get baseXP;
   @override
-  int? get order;
+  int get order;
   @override
-  List<StatResponse>? get stats;
+  List<StatResponse> get stats;
   @override
-  List<TypeResponse>? get types;
+  List<TypeResponse> get types;
   @override
-  ArtworkResponse get artwork;
+  SpritesResponse get sprites;
   @override
   @JsonKey(ignore: true)
   _$$PokemonResponseImplCopyWith<_$PokemonResponseImpl> get copyWith =>
@@ -857,9 +853,9 @@ OfficialArtworkResponse _$OfficialArtworkResponseFromJson(
 /// @nodoc
 mixin _$OfficialArtworkResponse {
   @JsonKey(name: 'front_default')
-  String? get frontDefault => throw _privateConstructorUsedError;
+  String get frontDefault => throw _privateConstructorUsedError;
   @JsonKey(name: 'front_shiny')
-  String? get frontShiny => throw _privateConstructorUsedError;
+  String get frontShiny => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $OfficialArtworkResponseCopyWith<OfficialArtworkResponse> get copyWith =>
@@ -873,8 +869,8 @@ abstract class $OfficialArtworkResponseCopyWith<$Res> {
       _$OfficialArtworkResponseCopyWithImpl<$Res, OfficialArtworkResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'front_default') String? frontDefault,
-      @JsonKey(name: 'front_shiny') String? frontShiny});
+      {@JsonKey(name: 'front_default') String frontDefault,
+      @JsonKey(name: 'front_shiny') String frontShiny});
 }
 
 /// @nodoc
@@ -891,18 +887,18 @@ class _$OfficialArtworkResponseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? frontDefault = freezed,
-    Object? frontShiny = freezed,
+    Object? frontDefault = null,
+    Object? frontShiny = null,
   }) {
     return _then(_value.copyWith(
-      frontDefault: freezed == frontDefault
+      frontDefault: null == frontDefault
           ? _value.frontDefault
           : frontDefault // ignore: cast_nullable_to_non_nullable
-              as String?,
-      frontShiny: freezed == frontShiny
+              as String,
+      frontShiny: null == frontShiny
           ? _value.frontShiny
           : frontShiny // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -917,8 +913,8 @@ abstract class _$$OfficialArtworkResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'front_default') String? frontDefault,
-      @JsonKey(name: 'front_shiny') String? frontShiny});
+      {@JsonKey(name: 'front_default') String frontDefault,
+      @JsonKey(name: 'front_shiny') String frontShiny});
 }
 
 /// @nodoc
@@ -934,18 +930,18 @@ class __$$OfficialArtworkResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? frontDefault = freezed,
-    Object? frontShiny = freezed,
+    Object? frontDefault = null,
+    Object? frontShiny = null,
   }) {
     return _then(_$OfficialArtworkResponseImpl(
-      frontDefault: freezed == frontDefault
+      frontDefault: null == frontDefault
           ? _value.frontDefault
           : frontDefault // ignore: cast_nullable_to_non_nullable
-              as String?,
-      frontShiny: freezed == frontShiny
+              as String,
+      frontShiny: null == frontShiny
           ? _value.frontShiny
           : frontShiny // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -954,18 +950,18 @@ class __$$OfficialArtworkResponseImplCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$OfficialArtworkResponseImpl implements _OfficialArtworkResponse {
   _$OfficialArtworkResponseImpl(
-      {@JsonKey(name: 'front_default') this.frontDefault,
-      @JsonKey(name: 'front_shiny') this.frontShiny});
+      {@JsonKey(name: 'front_default') required this.frontDefault,
+      @JsonKey(name: 'front_shiny') required this.frontShiny});
 
   factory _$OfficialArtworkResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$OfficialArtworkResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'front_default')
-  final String? frontDefault;
+  final String frontDefault;
   @override
   @JsonKey(name: 'front_shiny')
-  final String? frontShiny;
+  final String frontShiny;
 
   @override
   String toString() {
@@ -997,8 +993,8 @@ class _$OfficialArtworkResponseImpl implements _OfficialArtworkResponse {
 
 abstract class _OfficialArtworkResponse implements OfficialArtworkResponse {
   factory _OfficialArtworkResponse(
-          {@JsonKey(name: 'front_default') final String? frontDefault,
-          @JsonKey(name: 'front_shiny') final String? frontShiny}) =
+          {@JsonKey(name: 'front_default') required final String frontDefault,
+          @JsonKey(name: 'front_shiny') required final String frontShiny}) =
       _$OfficialArtworkResponseImpl;
 
   factory _OfficialArtworkResponse.fromJson(Map<String, dynamic> json) =
@@ -1006,10 +1002,10 @@ abstract class _OfficialArtworkResponse implements OfficialArtworkResponse {
 
   @override
   @JsonKey(name: 'front_default')
-  String? get frontDefault;
+  String get frontDefault;
   @override
   @JsonKey(name: 'front_shiny')
-  String? get frontShiny;
+  String get frontShiny;
   @override
   @JsonKey(ignore: true)
   _$$OfficialArtworkResponseImplCopyWith<_$OfficialArtworkResponseImpl>
@@ -1169,5 +1165,152 @@ abstract class _ArtworkResponse implements ArtworkResponse {
   @override
   @JsonKey(ignore: true)
   _$$ArtworkResponseImplCopyWith<_$ArtworkResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SpritesResponse _$SpritesResponseFromJson(Map<String, dynamic> json) {
+  return _SpritesResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SpritesResponse {
+  @JsonKey(name: 'other')
+  ArtworkResponse get artwork => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SpritesResponseCopyWith<SpritesResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SpritesResponseCopyWith<$Res> {
+  factory $SpritesResponseCopyWith(
+          SpritesResponse value, $Res Function(SpritesResponse) then) =
+      _$SpritesResponseCopyWithImpl<$Res, SpritesResponse>;
+  @useResult
+  $Res call({@JsonKey(name: 'other') ArtworkResponse artwork});
+
+  $ArtworkResponseCopyWith<$Res> get artwork;
+}
+
+/// @nodoc
+class _$SpritesResponseCopyWithImpl<$Res, $Val extends SpritesResponse>
+    implements $SpritesResponseCopyWith<$Res> {
+  _$SpritesResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? artwork = null,
+  }) {
+    return _then(_value.copyWith(
+      artwork: null == artwork
+          ? _value.artwork
+          : artwork // ignore: cast_nullable_to_non_nullable
+              as ArtworkResponse,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ArtworkResponseCopyWith<$Res> get artwork {
+    return $ArtworkResponseCopyWith<$Res>(_value.artwork, (value) {
+      return _then(_value.copyWith(artwork: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SpritesResponseImplCopyWith<$Res>
+    implements $SpritesResponseCopyWith<$Res> {
+  factory _$$SpritesResponseImplCopyWith(_$SpritesResponseImpl value,
+          $Res Function(_$SpritesResponseImpl) then) =
+      __$$SpritesResponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'other') ArtworkResponse artwork});
+
+  @override
+  $ArtworkResponseCopyWith<$Res> get artwork;
+}
+
+/// @nodoc
+class __$$SpritesResponseImplCopyWithImpl<$Res>
+    extends _$SpritesResponseCopyWithImpl<$Res, _$SpritesResponseImpl>
+    implements _$$SpritesResponseImplCopyWith<$Res> {
+  __$$SpritesResponseImplCopyWithImpl(
+      _$SpritesResponseImpl _value, $Res Function(_$SpritesResponseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? artwork = null,
+  }) {
+    return _then(_$SpritesResponseImpl(
+      artwork: null == artwork
+          ? _value.artwork
+          : artwork // ignore: cast_nullable_to_non_nullable
+              as ArtworkResponse,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable(createToJson: false)
+class _$SpritesResponseImpl implements _SpritesResponse {
+  _$SpritesResponseImpl({@JsonKey(name: 'other') required this.artwork});
+
+  factory _$SpritesResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SpritesResponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'other')
+  final ArtworkResponse artwork;
+
+  @override
+  String toString() {
+    return 'SpritesResponse(artwork: $artwork)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SpritesResponseImpl &&
+            (identical(other.artwork, artwork) || other.artwork == artwork));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, artwork);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SpritesResponseImplCopyWith<_$SpritesResponseImpl> get copyWith =>
+      __$$SpritesResponseImplCopyWithImpl<_$SpritesResponseImpl>(
+          this, _$identity);
+}
+
+abstract class _SpritesResponse implements SpritesResponse {
+  factory _SpritesResponse(
+          {@JsonKey(name: 'other') required final ArtworkResponse artwork}) =
+      _$SpritesResponseImpl;
+
+  factory _SpritesResponse.fromJson(Map<String, dynamic> json) =
+      _$SpritesResponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'other')
+  ArtworkResponse get artwork;
+  @override
+  @JsonKey(ignore: true)
+  _$$SpritesResponseImplCopyWith<_$SpritesResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

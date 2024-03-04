@@ -14,10 +14,10 @@ abstract class Pokemon with _$Pokemon {
     required String name,
     required int weight,
     required int baseXP,
-    int? order,
-    List<Stat>? stats,
-    List<PokemonType>? types,
-    String? thumbnail,
+    required int order,
+    required List<Stat> stats,
+    required List<PokemonType> types,
+    required String thumbnail,
   }) = _Pokemon;
 
   factory Pokemon.fromApiResponse(PokemonResponse raw) => Pokemon(
@@ -28,18 +28,18 @@ abstract class Pokemon with _$Pokemon {
         baseXP: raw.baseXP,
         order: raw.order,
         stats: raw.stats
-            ?.map(
+            .map(
               (e) => Stat(
-                name: StatName.values.byName(e.item.name),
+                name: StatName.values.firstWhere((v) => v.value == e.item.name),
                 amount: e.baseStat,
               ),
             )
             .toList(),
         types: raw.types
-            ?.map(
+            .map(
               (e) => PokemonType.values.byName(e.type.name),
             )
             .toList(),
-        thumbnail: raw.artwork.officialArtwork.frontDefault,
+        thumbnail: raw.sprites.artwork.officialArtwork.frontDefault,
       );
 }

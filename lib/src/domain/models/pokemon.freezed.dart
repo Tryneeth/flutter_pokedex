@@ -21,10 +21,10 @@ mixin _$Pokemon {
   String get name => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
   int get baseXP => throw _privateConstructorUsedError;
-  int? get order => throw _privateConstructorUsedError;
-  List<Stat>? get stats => throw _privateConstructorUsedError;
-  List<PokemonType>? get types => throw _privateConstructorUsedError;
-  String? get thumbnail => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
+  List<Stat> get stats => throw _privateConstructorUsedError;
+  List<PokemonType> get types => throw _privateConstructorUsedError;
+  String get thumbnail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonCopyWith<Pokemon> get copyWith => throw _privateConstructorUsedError;
@@ -41,10 +41,10 @@ abstract class $PokemonCopyWith<$Res> {
       String name,
       int weight,
       int baseXP,
-      int? order,
-      List<Stat>? stats,
-      List<PokemonType>? types,
-      String? thumbnail});
+      int order,
+      List<Stat> stats,
+      List<PokemonType> types,
+      String thumbnail});
 }
 
 /// @nodoc
@@ -65,10 +65,10 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
     Object? name = null,
     Object? weight = null,
     Object? baseXP = null,
-    Object? order = freezed,
-    Object? stats = freezed,
-    Object? types = freezed,
-    Object? thumbnail = freezed,
+    Object? order = null,
+    Object? stats = null,
+    Object? types = null,
+    Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
       height: null == height
@@ -91,22 +91,22 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
           ? _value.baseXP
           : baseXP // ignore: cast_nullable_to_non_nullable
               as int,
-      order: freezed == order
+      order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as int?,
-      stats: freezed == stats
+              as int,
+      stats: null == stats
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as List<Stat>?,
-      types: freezed == types
+              as List<Stat>,
+      types: null == types
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
-              as List<PokemonType>?,
-      thumbnail: freezed == thumbnail
+              as List<PokemonType>,
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -124,10 +124,10 @@ abstract class _$$PokemonImplCopyWith<$Res> implements $PokemonCopyWith<$Res> {
       String name,
       int weight,
       int baseXP,
-      int? order,
-      List<Stat>? stats,
-      List<PokemonType>? types,
-      String? thumbnail});
+      int order,
+      List<Stat> stats,
+      List<PokemonType> types,
+      String thumbnail});
 }
 
 /// @nodoc
@@ -146,10 +146,10 @@ class __$$PokemonImplCopyWithImpl<$Res>
     Object? name = null,
     Object? weight = null,
     Object? baseXP = null,
-    Object? order = freezed,
-    Object? stats = freezed,
-    Object? types = freezed,
-    Object? thumbnail = freezed,
+    Object? order = null,
+    Object? stats = null,
+    Object? types = null,
+    Object? thumbnail = null,
   }) {
     return _then(_$PokemonImpl(
       height: null == height
@@ -172,22 +172,22 @@ class __$$PokemonImplCopyWithImpl<$Res>
           ? _value.baseXP
           : baseXP // ignore: cast_nullable_to_non_nullable
               as int,
-      order: freezed == order
+      order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as int?,
-      stats: freezed == stats
+              as int,
+      stats: null == stats
           ? _value._stats
           : stats // ignore: cast_nullable_to_non_nullable
-              as List<Stat>?,
-      types: freezed == types
+              as List<Stat>,
+      types: null == types
           ? _value._types
           : types // ignore: cast_nullable_to_non_nullable
-              as List<PokemonType>?,
-      thumbnail: freezed == thumbnail
+              as List<PokemonType>,
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -201,10 +201,10 @@ class _$PokemonImpl implements _Pokemon {
       required this.name,
       required this.weight,
       required this.baseXP,
-      this.order,
-      final List<Stat>? stats,
-      final List<PokemonType>? types,
-      this.thumbnail})
+      required this.order,
+      required final List<Stat> stats,
+      required final List<PokemonType> types,
+      required this.thumbnail})
       : _stats = stats,
         _types = types;
 
@@ -219,29 +219,25 @@ class _$PokemonImpl implements _Pokemon {
   @override
   final int baseXP;
   @override
-  final int? order;
-  final List<Stat>? _stats;
+  final int order;
+  final List<Stat> _stats;
   @override
-  List<Stat>? get stats {
-    final value = _stats;
-    if (value == null) return null;
+  List<Stat> get stats {
     if (_stats is EqualUnmodifiableListView) return _stats;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_stats);
   }
 
-  final List<PokemonType>? _types;
+  final List<PokemonType> _types;
   @override
-  List<PokemonType>? get types {
-    final value = _types;
-    if (value == null) return null;
+  List<PokemonType> get types {
     if (_types is EqualUnmodifiableListView) return _types;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_types);
   }
 
   @override
-  final String? thumbnail;
+  final String thumbnail;
 
   @override
   String toString() {
@@ -292,10 +288,10 @@ abstract class _Pokemon implements Pokemon {
       required final String name,
       required final int weight,
       required final int baseXP,
-      final int? order,
-      final List<Stat>? stats,
-      final List<PokemonType>? types,
-      final String? thumbnail}) = _$PokemonImpl;
+      required final int order,
+      required final List<Stat> stats,
+      required final List<PokemonType> types,
+      required final String thumbnail}) = _$PokemonImpl;
 
   @override
   int get height;
@@ -308,13 +304,13 @@ abstract class _Pokemon implements Pokemon {
   @override
   int get baseXP;
   @override
-  int? get order;
+  int get order;
   @override
-  List<Stat>? get stats;
+  List<Stat> get stats;
   @override
-  List<PokemonType>? get types;
+  List<PokemonType> get types;
   @override
-  String? get thumbnail;
+  String get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$PokemonImplCopyWith<_$PokemonImpl> get copyWith =>

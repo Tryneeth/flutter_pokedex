@@ -17,7 +17,7 @@ class ErrorView extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('An Error has occured'),
+          const Text('An error has occurred'),
           const SizedBox(height: xs),
           ElevatedButton(
             onPressed: onRetry,

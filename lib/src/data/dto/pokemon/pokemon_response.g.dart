@@ -14,15 +14,15 @@ _$PokemonResponseImpl _$$PokemonResponseImplFromJson(
       name: json['name'] as String,
       weight: json['weight'] as int,
       baseXP: json['base_experience'] as int,
-      order: json['order'] as int?,
-      stats: (json['stats'] as List<dynamic>?)
-          ?.map((e) => StatResponse.fromJson(e as Map<String, dynamic>))
+      order: json['order'] as int,
+      stats: (json['stats'] as List<dynamic>)
+          .map((e) => StatResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      types: (json['types'] as List<dynamic>?)
-          ?.map((e) => TypeResponse.fromJson(e as Map<String, dynamic>))
+      types: (json['types'] as List<dynamic>)
+          .map((e) => TypeResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      artwork:
-          ArtworkResponse.fromJson(json['artwork'] as Map<String, dynamic>),
+      sprites:
+          SpritesResponse.fromJson(json['sprites'] as Map<String, dynamic>),
     );
 
 _$StatResponseImpl _$$StatResponseImplFromJson(Map<String, dynamic> json) =>
@@ -47,8 +47,8 @@ _$ItemResponseImpl _$$ItemResponseImplFromJson(Map<String, dynamic> json) =>
 _$OfficialArtworkResponseImpl _$$OfficialArtworkResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$OfficialArtworkResponseImpl(
-      frontDefault: json['front_default'] as String?,
-      frontShiny: json['front_shiny'] as String?,
+      frontDefault: json['front_default'] as String,
+      frontShiny: json['front_shiny'] as String,
     );
 
 _$ArtworkResponseImpl _$$ArtworkResponseImplFromJson(
@@ -56,4 +56,10 @@ _$ArtworkResponseImpl _$$ArtworkResponseImplFromJson(
     _$ArtworkResponseImpl(
       officialArtwork: OfficialArtworkResponse.fromJson(
           json['official-artwork'] as Map<String, dynamic>),
+    );
+
+_$SpritesResponseImpl _$$SpritesResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SpritesResponseImpl(
+      artwork: ArtworkResponse.fromJson(json['other'] as Map<String, dynamic>),
     );

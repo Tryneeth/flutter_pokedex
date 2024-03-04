@@ -49,7 +49,12 @@ class _PokemonList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: names.length,
-      itemBuilder: (context, i) => ListTile(title: Text(names[i])),
+      itemBuilder: (context, i) => ListTile(
+        title: Text(names[i]),
+        onTap: () => context
+            .read<PokedexBloc>()
+            .add(PokedexEvent.pokemonDetails(names[i])),
+      ),
     );
   }
 }

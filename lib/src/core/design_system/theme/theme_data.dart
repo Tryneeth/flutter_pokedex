@@ -6,17 +6,15 @@ extension BuildContextX on BuildContext {
 
 extension ThemeDataCommonExtension on ThemeData {
   ThemeData get common => copyWith(
-        filledButtonTheme: _CommonAppThemeData.filledButtonThemeData,
+        filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(
+            padding: dimen.x.md,
+          ),
+        ),
         appBarTheme: appBarTheme.copyWith(
           backgroundColor: primaryColor,
+          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 18),
+          iconTheme: const IconThemeData(color: Colors.white),
         ),
       );
-}
-
-class _CommonAppThemeData {
-  static final filledButtonThemeData = FilledButtonThemeData(
-    style: FilledButton.styleFrom(
-      padding: dimen.x.md,
-    ),
-  );
 }

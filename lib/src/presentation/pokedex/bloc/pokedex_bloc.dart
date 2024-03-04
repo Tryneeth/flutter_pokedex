@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_pokedex/src/domain/usecases/get_all_pokemons_usecase.dart';
+import 'package:flutter_pokedex/src/presentation/pokedex/navigator/pokedex_navigator.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -9,14 +10,20 @@ part 'pokedex_bloc.freezed.dart';
 
 @injectable
 class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
-  PokedexBloc(this._getAllPokemonsUsecase)
+  PokedexBloc(this._getAllPokemonsUsecase, this._navigator)
       : super(const PokedexState.initial()) {
-    on<PokedexEvent>((event, emit) => event.map(load: (_) => _onLoad(emit)));
+    on<PokedexEvent>(
+      (event, emit) => event.map(
+        load: (_) => _onLoad(emit),
+        pokemonDetails: (event) => _onPokemonDetails(emit, event),
+      ),
+    );
 
     add(const PokedexEvent.load());
   }
 
   final GetAllPokemonsUsecase _getAllPokemonsUsecase;
+  final PokedexNavigator _navigator;
 
   Future<void> _onLoad(Emitter<PokedexState> emit) async {
     emit(const PokedexState.loading());
@@ -30,4 +37,10 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
       ),
     );
   }
+
+  void _onPokemonDetails(
+    Emitter<PokedexState> emit,
+    _PokemonDetailsPokedexEvent event,
+  ) =>
+      _navigator.pushPokemonDetails(event.pokemonName);
 }
