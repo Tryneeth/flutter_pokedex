@@ -38,25 +38,22 @@ class _BottomActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<PokemonDetailsBloc, PokemonDetailsState, bool>(
-      selector: (state) {
-        return state.maybeMap(content: (_) => true, orElse: () => false);
-      },
+    return BlocBuilder<PokemonDetailsBloc, PokemonDetailsState>(
       builder: (context, state) {
-        return state
-            ? BottomBar(
-                bottomBar: Row(
-                  children: [
-                    Expanded(
-                      child: FilledButton(
-                        child: const Text('Capture'),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
+        final contentState = state.mapOrNull(
+          content: (value) => value,
+        );
+        return (contentState == null)
+            ? const SizedBox.shrink()
+            : BottomBar(
+                bottomBar: PrimaryButton.responsive(
+                  title: contentState.isCaptured ? 'Release' : 'Capture',
+                  isLoading: contentState.capturing,
+                  onPressed: () => context
+                      .read<PokemonDetailsBloc>()
+                      .add(const PokemonDetailsEvent.capture()),
                 ),
-              )
-            : const SizedBox.shrink();
+              );
       },
     );
   }

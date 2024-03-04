@@ -14,8 +14,8 @@ void appDIInitializer() {
       instanceName: ApiDiParameterName.baseUrlV2,
     )
     ..registerSingleton(
-      'develop',
-      instanceName: ApiDiParameterName.environment,
+      'HivePokemon',
+      instanceName: ApiDiParameterName.pokemonHiveId,
     )
     ..init();
 }

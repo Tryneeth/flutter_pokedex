@@ -8,6 +8,8 @@ class PokemonDetailsState with _$PokemonDetailsState {
 
   const factory PokemonDetailsState.content({
     required Pokemon pokemon,
+    @Default(false) bool isCaptured,
+    @Default(false) bool capturing,
   }) = _ContentPokemonDetailsState;
 
   const factory PokemonDetailsState.error(Exception error) =
