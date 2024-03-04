@@ -26,14 +26,14 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             title: const Text('Home'),
-            onTap: () => context.router.popAndPush(
-              const PokedexRoute(),
+            onTap: () => context.router.replaceAll(
+              [const PokedexRoute()],
             ),
           ),
           ListTile(
             title: const Text('Captured'),
-            onTap: () => context.router.popAndPush(
-              const CapturedRoute(),
+            onTap: () => context.router.replaceAll(
+              [const CapturedRoute()],
             ),
           ),
         ],

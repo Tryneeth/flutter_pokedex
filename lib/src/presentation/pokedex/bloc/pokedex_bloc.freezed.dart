@@ -19,18 +19,24 @@ mixin _$PokedexEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function() goToSearch,
+    required TResult Function(String input) search,
     required TResult Function(String pokemonName) pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function()? goToSearch,
+    TResult? Function(String input)? search,
     TResult? Function(String pokemonName)? pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? goToSearch,
+    TResult Function(String input)? search,
     TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) =>
@@ -38,18 +44,24 @@ mixin _$PokedexEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_GoToSearchPokedexEvent value) goToSearch,
+    required TResult Function(_SearchPokedexEvent value) search,
     required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult? Function(_SearchPokedexEvent value)? search,
     TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult Function(_SearchPokedexEvent value)? search,
     TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
     required TResult orElse(),
   }) =>
@@ -113,6 +125,8 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function() goToSearch,
+    required TResult Function(String input) search,
     required TResult Function(String pokemonName) pokemonDetails,
   }) {
     return load();
@@ -122,6 +136,8 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function()? goToSearch,
+    TResult? Function(String input)? search,
     TResult? Function(String pokemonName)? pokemonDetails,
   }) {
     return load?.call();
@@ -131,6 +147,8 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? goToSearch,
+    TResult Function(String input)? search,
     TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) {
@@ -144,6 +162,8 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_GoToSearchPokedexEvent value) goToSearch,
+    required TResult Function(_SearchPokedexEvent value) search,
     required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
   }) {
     return load(this);
@@ -153,6 +173,8 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult? Function(_SearchPokedexEvent value)? search,
     TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
   }) {
     return load?.call(this);
@@ -162,6 +184,8 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult Function(_SearchPokedexEvent value)? search,
     TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
     required TResult orElse(),
   }) {
@@ -174,6 +198,270 @@ class _$LoadPokedexEventImpl implements _LoadPokedexEvent {
 
 abstract class _LoadPokedexEvent implements PokedexEvent {
   const factory _LoadPokedexEvent() = _$LoadPokedexEventImpl;
+}
+
+/// @nodoc
+abstract class _$$GoToSearchPokedexEventImplCopyWith<$Res> {
+  factory _$$GoToSearchPokedexEventImplCopyWith(
+          _$GoToSearchPokedexEventImpl value,
+          $Res Function(_$GoToSearchPokedexEventImpl) then) =
+      __$$GoToSearchPokedexEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GoToSearchPokedexEventImplCopyWithImpl<$Res>
+    extends _$PokedexEventCopyWithImpl<$Res, _$GoToSearchPokedexEventImpl>
+    implements _$$GoToSearchPokedexEventImplCopyWith<$Res> {
+  __$$GoToSearchPokedexEventImplCopyWithImpl(
+      _$GoToSearchPokedexEventImpl _value,
+      $Res Function(_$GoToSearchPokedexEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GoToSearchPokedexEventImpl implements _GoToSearchPokedexEvent {
+  const _$GoToSearchPokedexEventImpl();
+
+  @override
+  String toString() {
+    return 'PokedexEvent.goToSearch()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GoToSearchPokedexEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() goToSearch,
+    required TResult Function(String input) search,
+    required TResult Function(String pokemonName) pokemonDetails,
+  }) {
+    return goToSearch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? goToSearch,
+    TResult? Function(String input)? search,
+    TResult? Function(String pokemonName)? pokemonDetails,
+  }) {
+    return goToSearch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? goToSearch,
+    TResult Function(String input)? search,
+    TResult Function(String pokemonName)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (goToSearch != null) {
+      return goToSearch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_GoToSearchPokedexEvent value) goToSearch,
+    required TResult Function(_SearchPokedexEvent value) search,
+    required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
+  }) {
+    return goToSearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult? Function(_SearchPokedexEvent value)? search,
+    TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
+  }) {
+    return goToSearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult Function(_SearchPokedexEvent value)? search,
+    TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (goToSearch != null) {
+      return goToSearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GoToSearchPokedexEvent implements PokedexEvent {
+  const factory _GoToSearchPokedexEvent() = _$GoToSearchPokedexEventImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchPokedexEventImplCopyWith<$Res> {
+  factory _$$SearchPokedexEventImplCopyWith(_$SearchPokedexEventImpl value,
+          $Res Function(_$SearchPokedexEventImpl) then) =
+      __$$SearchPokedexEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String input});
+}
+
+/// @nodoc
+class __$$SearchPokedexEventImplCopyWithImpl<$Res>
+    extends _$PokedexEventCopyWithImpl<$Res, _$SearchPokedexEventImpl>
+    implements _$$SearchPokedexEventImplCopyWith<$Res> {
+  __$$SearchPokedexEventImplCopyWithImpl(_$SearchPokedexEventImpl _value,
+      $Res Function(_$SearchPokedexEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? input = null,
+  }) {
+    return _then(_$SearchPokedexEventImpl(
+      input: null == input
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchPokedexEventImpl implements _SearchPokedexEvent {
+  const _$SearchPokedexEventImpl({required this.input});
+
+  @override
+  final String input;
+
+  @override
+  String toString() {
+    return 'PokedexEvent.search(input: $input)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchPokedexEventImpl &&
+            (identical(other.input, input) || other.input == input));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, input);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchPokedexEventImplCopyWith<_$SearchPokedexEventImpl> get copyWith =>
+      __$$SearchPokedexEventImplCopyWithImpl<_$SearchPokedexEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() goToSearch,
+    required TResult Function(String input) search,
+    required TResult Function(String pokemonName) pokemonDetails,
+  }) {
+    return search(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? goToSearch,
+    TResult? Function(String input)? search,
+    TResult? Function(String pokemonName)? pokemonDetails,
+  }) {
+    return search?.call(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? goToSearch,
+    TResult Function(String input)? search,
+    TResult Function(String pokemonName)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(input);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_GoToSearchPokedexEvent value) goToSearch,
+    required TResult Function(_SearchPokedexEvent value) search,
+    required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult? Function(_SearchPokedexEvent value)? search,
+    TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
+  }) {
+    return search?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult Function(_SearchPokedexEvent value)? search,
+    TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchPokedexEvent implements PokedexEvent {
+  const factory _SearchPokedexEvent({required final String input}) =
+      _$SearchPokedexEventImpl;
+
+  String get input;
+  @JsonKey(ignore: true)
+  _$$SearchPokedexEventImplCopyWith<_$SearchPokedexEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -245,6 +533,8 @@ class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function() goToSearch,
+    required TResult Function(String input) search,
     required TResult Function(String pokemonName) pokemonDetails,
   }) {
     return pokemonDetails(pokemonName);
@@ -254,6 +544,8 @@ class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function()? goToSearch,
+    TResult? Function(String input)? search,
     TResult? Function(String pokemonName)? pokemonDetails,
   }) {
     return pokemonDetails?.call(pokemonName);
@@ -263,6 +555,8 @@ class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function()? goToSearch,
+    TResult Function(String input)? search,
     TResult Function(String pokemonName)? pokemonDetails,
     required TResult orElse(),
   }) {
@@ -276,6 +570,8 @@ class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPokedexEvent value) load,
+    required TResult Function(_GoToSearchPokedexEvent value) goToSearch,
+    required TResult Function(_SearchPokedexEvent value) search,
     required TResult Function(_PokemonDetailsPokedexEvent value) pokemonDetails,
   }) {
     return pokemonDetails(this);
@@ -285,6 +581,8 @@ class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPokedexEvent value)? load,
+    TResult? Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult? Function(_SearchPokedexEvent value)? search,
     TResult? Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
   }) {
     return pokemonDetails?.call(this);
@@ -294,6 +592,8 @@ class _$PokemonDetailsPokedexEventImpl implements _PokemonDetailsPokedexEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPokedexEvent value)? load,
+    TResult Function(_GoToSearchPokedexEvent value)? goToSearch,
+    TResult Function(_SearchPokedexEvent value)? search,
     TResult Function(_PokemonDetailsPokedexEvent value)? pokemonDetails,
     required TResult orElse(),
   }) {
@@ -321,6 +621,9 @@ mixin _$PokedexState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> names) content,
+    required TResult Function(
+            List<String> names, List<String> matchingNames, String input)
+        search,
     required TResult Function(Exception error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -329,6 +632,9 @@ mixin _$PokedexState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> names)? content,
+    TResult? Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult? Function(Exception error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -337,6 +643,9 @@ mixin _$PokedexState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> names)? content,
+    TResult Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) =>
@@ -346,6 +655,7 @@ mixin _$PokedexState {
     required TResult Function(_InitialPokedexState value) initial,
     required TResult Function(_LoadingPokedexState value) loading,
     required TResult Function(_ContentPokedexState value) content,
+    required TResult Function(_SearchPokedexState value) search,
     required TResult Function(_ErrorPokedexState value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -354,6 +664,7 @@ mixin _$PokedexState {
     TResult? Function(_InitialPokedexState value)? initial,
     TResult? Function(_LoadingPokedexState value)? loading,
     TResult? Function(_ContentPokedexState value)? content,
+    TResult? Function(_SearchPokedexState value)? search,
     TResult? Function(_ErrorPokedexState value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -362,6 +673,7 @@ mixin _$PokedexState {
     TResult Function(_InitialPokedexState value)? initial,
     TResult Function(_LoadingPokedexState value)? loading,
     TResult Function(_ContentPokedexState value)? content,
+    TResult Function(_SearchPokedexState value)? search,
     TResult Function(_ErrorPokedexState value)? error,
     required TResult orElse(),
   }) =>
@@ -428,6 +740,9 @@ class _$InitialPokedexStateImpl implements _InitialPokedexState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> names) content,
+    required TResult Function(
+            List<String> names, List<String> matchingNames, String input)
+        search,
     required TResult Function(Exception error) error,
   }) {
     return initial();
@@ -439,6 +754,9 @@ class _$InitialPokedexStateImpl implements _InitialPokedexState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> names)? content,
+    TResult? Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult? Function(Exception error)? error,
   }) {
     return initial?.call();
@@ -450,6 +768,9 @@ class _$InitialPokedexStateImpl implements _InitialPokedexState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> names)? content,
+    TResult Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -465,6 +786,7 @@ class _$InitialPokedexStateImpl implements _InitialPokedexState {
     required TResult Function(_InitialPokedexState value) initial,
     required TResult Function(_LoadingPokedexState value) loading,
     required TResult Function(_ContentPokedexState value) content,
+    required TResult Function(_SearchPokedexState value) search,
     required TResult Function(_ErrorPokedexState value) error,
   }) {
     return initial(this);
@@ -476,6 +798,7 @@ class _$InitialPokedexStateImpl implements _InitialPokedexState {
     TResult? Function(_InitialPokedexState value)? initial,
     TResult? Function(_LoadingPokedexState value)? loading,
     TResult? Function(_ContentPokedexState value)? content,
+    TResult? Function(_SearchPokedexState value)? search,
     TResult? Function(_ErrorPokedexState value)? error,
   }) {
     return initial?.call(this);
@@ -487,6 +810,7 @@ class _$InitialPokedexStateImpl implements _InitialPokedexState {
     TResult Function(_InitialPokedexState value)? initial,
     TResult Function(_LoadingPokedexState value)? loading,
     TResult Function(_ContentPokedexState value)? content,
+    TResult Function(_SearchPokedexState value)? search,
     TResult Function(_ErrorPokedexState value)? error,
     required TResult orElse(),
   }) {
@@ -543,6 +867,9 @@ class _$LoadingPokedexStateImpl implements _LoadingPokedexState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> names) content,
+    required TResult Function(
+            List<String> names, List<String> matchingNames, String input)
+        search,
     required TResult Function(Exception error) error,
   }) {
     return loading();
@@ -554,6 +881,9 @@ class _$LoadingPokedexStateImpl implements _LoadingPokedexState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> names)? content,
+    TResult? Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult? Function(Exception error)? error,
   }) {
     return loading?.call();
@@ -565,6 +895,9 @@ class _$LoadingPokedexStateImpl implements _LoadingPokedexState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> names)? content,
+    TResult Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -580,6 +913,7 @@ class _$LoadingPokedexStateImpl implements _LoadingPokedexState {
     required TResult Function(_InitialPokedexState value) initial,
     required TResult Function(_LoadingPokedexState value) loading,
     required TResult Function(_ContentPokedexState value) content,
+    required TResult Function(_SearchPokedexState value) search,
     required TResult Function(_ErrorPokedexState value) error,
   }) {
     return loading(this);
@@ -591,6 +925,7 @@ class _$LoadingPokedexStateImpl implements _LoadingPokedexState {
     TResult? Function(_InitialPokedexState value)? initial,
     TResult? Function(_LoadingPokedexState value)? loading,
     TResult? Function(_ContentPokedexState value)? content,
+    TResult? Function(_SearchPokedexState value)? search,
     TResult? Function(_ErrorPokedexState value)? error,
   }) {
     return loading?.call(this);
@@ -602,6 +937,7 @@ class _$LoadingPokedexStateImpl implements _LoadingPokedexState {
     TResult Function(_InitialPokedexState value)? initial,
     TResult Function(_LoadingPokedexState value)? loading,
     TResult Function(_ContentPokedexState value)? content,
+    TResult Function(_SearchPokedexState value)? search,
     TResult Function(_ErrorPokedexState value)? error,
     required TResult orElse(),
   }) {
@@ -691,6 +1027,9 @@ class _$ContentPokedexStateImpl implements _ContentPokedexState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> names) content,
+    required TResult Function(
+            List<String> names, List<String> matchingNames, String input)
+        search,
     required TResult Function(Exception error) error,
   }) {
     return content(names);
@@ -702,6 +1041,9 @@ class _$ContentPokedexStateImpl implements _ContentPokedexState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> names)? content,
+    TResult? Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult? Function(Exception error)? error,
   }) {
     return content?.call(names);
@@ -713,6 +1055,9 @@ class _$ContentPokedexStateImpl implements _ContentPokedexState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> names)? content,
+    TResult Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -728,6 +1073,7 @@ class _$ContentPokedexStateImpl implements _ContentPokedexState {
     required TResult Function(_InitialPokedexState value) initial,
     required TResult Function(_LoadingPokedexState value) loading,
     required TResult Function(_ContentPokedexState value) content,
+    required TResult Function(_SearchPokedexState value) search,
     required TResult Function(_ErrorPokedexState value) error,
   }) {
     return content(this);
@@ -739,6 +1085,7 @@ class _$ContentPokedexStateImpl implements _ContentPokedexState {
     TResult? Function(_InitialPokedexState value)? initial,
     TResult? Function(_LoadingPokedexState value)? loading,
     TResult? Function(_ContentPokedexState value)? content,
+    TResult? Function(_SearchPokedexState value)? search,
     TResult? Function(_ErrorPokedexState value)? error,
   }) {
     return content?.call(this);
@@ -750,6 +1097,7 @@ class _$ContentPokedexStateImpl implements _ContentPokedexState {
     TResult Function(_InitialPokedexState value)? initial,
     TResult Function(_LoadingPokedexState value)? loading,
     TResult Function(_ContentPokedexState value)? content,
+    TResult Function(_SearchPokedexState value)? search,
     TResult Function(_ErrorPokedexState value)? error,
     required TResult orElse(),
   }) {
@@ -767,6 +1115,209 @@ abstract class _ContentPokedexState implements PokedexState {
   List<String> get names;
   @JsonKey(ignore: true)
   _$$ContentPokedexStateImplCopyWith<_$ContentPokedexStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchPokedexStateImplCopyWith<$Res> {
+  factory _$$SearchPokedexStateImplCopyWith(_$SearchPokedexStateImpl value,
+          $Res Function(_$SearchPokedexStateImpl) then) =
+      __$$SearchPokedexStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> names, List<String> matchingNames, String input});
+}
+
+/// @nodoc
+class __$$SearchPokedexStateImplCopyWithImpl<$Res>
+    extends _$PokedexStateCopyWithImpl<$Res, _$SearchPokedexStateImpl>
+    implements _$$SearchPokedexStateImplCopyWith<$Res> {
+  __$$SearchPokedexStateImplCopyWithImpl(_$SearchPokedexStateImpl _value,
+      $Res Function(_$SearchPokedexStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? names = null,
+    Object? matchingNames = null,
+    Object? input = null,
+  }) {
+    return _then(_$SearchPokedexStateImpl(
+      names: null == names
+          ? _value._names
+          : names // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      matchingNames: null == matchingNames
+          ? _value._matchingNames
+          : matchingNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      input: null == input
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchPokedexStateImpl implements _SearchPokedexState {
+  const _$SearchPokedexStateImpl(
+      {required final List<String> names,
+      final List<String> matchingNames = const [],
+      this.input = ''})
+      : _names = names,
+        _matchingNames = matchingNames;
+
+  final List<String> _names;
+  @override
+  List<String> get names {
+    if (_names is EqualUnmodifiableListView) return _names;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_names);
+  }
+
+  final List<String> _matchingNames;
+  @override
+  @JsonKey()
+  List<String> get matchingNames {
+    if (_matchingNames is EqualUnmodifiableListView) return _matchingNames;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_matchingNames);
+  }
+
+  @override
+  @JsonKey()
+  final String input;
+
+  @override
+  String toString() {
+    return 'PokedexState.search(names: $names, matchingNames: $matchingNames, input: $input)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchPokedexStateImpl &&
+            const DeepCollectionEquality().equals(other._names, _names) &&
+            const DeepCollectionEquality()
+                .equals(other._matchingNames, _matchingNames) &&
+            (identical(other.input, input) || other.input == input));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_names),
+      const DeepCollectionEquality().hash(_matchingNames),
+      input);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchPokedexStateImplCopyWith<_$SearchPokedexStateImpl> get copyWith =>
+      __$$SearchPokedexStateImplCopyWithImpl<_$SearchPokedexStateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<String> names) content,
+    required TResult Function(
+            List<String> names, List<String> matchingNames, String input)
+        search,
+    required TResult Function(Exception error) error,
+  }) {
+    return search(names, matchingNames, input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<String> names)? content,
+    TResult? Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
+    TResult? Function(Exception error)? error,
+  }) {
+    return search?.call(names, matchingNames, input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<String> names)? content,
+    TResult Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
+    TResult Function(Exception error)? error,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(names, matchingNames, input);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialPokedexState value) initial,
+    required TResult Function(_LoadingPokedexState value) loading,
+    required TResult Function(_ContentPokedexState value) content,
+    required TResult Function(_SearchPokedexState value) search,
+    required TResult Function(_ErrorPokedexState value) error,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitialPokedexState value)? initial,
+    TResult? Function(_LoadingPokedexState value)? loading,
+    TResult? Function(_ContentPokedexState value)? content,
+    TResult? Function(_SearchPokedexState value)? search,
+    TResult? Function(_ErrorPokedexState value)? error,
+  }) {
+    return search?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialPokedexState value)? initial,
+    TResult Function(_LoadingPokedexState value)? loading,
+    TResult Function(_ContentPokedexState value)? content,
+    TResult Function(_SearchPokedexState value)? search,
+    TResult Function(_ErrorPokedexState value)? error,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchPokedexState implements PokedexState {
+  const factory _SearchPokedexState(
+      {required final List<String> names,
+      final List<String> matchingNames,
+      final String input}) = _$SearchPokedexStateImpl;
+
+  List<String> get names;
+  List<String> get matchingNames;
+  String get input;
+  @JsonKey(ignore: true)
+  _$$SearchPokedexStateImplCopyWith<_$SearchPokedexStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -838,6 +1389,9 @@ class _$ErrorPokedexStateImpl implements _ErrorPokedexState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<String> names) content,
+    required TResult Function(
+            List<String> names, List<String> matchingNames, String input)
+        search,
     required TResult Function(Exception error) error,
   }) {
     return error(this.error);
@@ -849,6 +1403,9 @@ class _$ErrorPokedexStateImpl implements _ErrorPokedexState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<String> names)? content,
+    TResult? Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult? Function(Exception error)? error,
   }) {
     return error?.call(this.error);
@@ -860,6 +1417,9 @@ class _$ErrorPokedexStateImpl implements _ErrorPokedexState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<String> names)? content,
+    TResult Function(
+            List<String> names, List<String> matchingNames, String input)?
+        search,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -875,6 +1435,7 @@ class _$ErrorPokedexStateImpl implements _ErrorPokedexState {
     required TResult Function(_InitialPokedexState value) initial,
     required TResult Function(_LoadingPokedexState value) loading,
     required TResult Function(_ContentPokedexState value) content,
+    required TResult Function(_SearchPokedexState value) search,
     required TResult Function(_ErrorPokedexState value) error,
   }) {
     return error(this);
@@ -886,6 +1447,7 @@ class _$ErrorPokedexStateImpl implements _ErrorPokedexState {
     TResult? Function(_InitialPokedexState value)? initial,
     TResult? Function(_LoadingPokedexState value)? loading,
     TResult? Function(_ContentPokedexState value)? content,
+    TResult? Function(_SearchPokedexState value)? search,
     TResult? Function(_ErrorPokedexState value)? error,
   }) {
     return error?.call(this);
@@ -897,6 +1459,7 @@ class _$ErrorPokedexStateImpl implements _ErrorPokedexState {
     TResult Function(_InitialPokedexState value)? initial,
     TResult Function(_LoadingPokedexState value)? loading,
     TResult Function(_ContentPokedexState value)? content,
+    TResult Function(_SearchPokedexState value)? search,
     TResult Function(_ErrorPokedexState value)? error,
     required TResult orElse(),
   }) {

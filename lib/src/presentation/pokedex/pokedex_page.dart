@@ -10,18 +10,52 @@ class PokedexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<PokedexBloc>(
+        param1: context.read<ThemeBloc>(),
+      ),
+      child: const _ScaffoldPage(),
+    );
+  }
+}
+
+class _ScaffoldPage extends StatelessWidget {
+  const _ScaffoldPage();
+
+  @override
+  Widget build(BuildContext context) {
     return PortalPage(
       appBar: AppBar(
         title: const Text('Pokedex'),
+        actions: [
+          BlocBuilder<PokedexBloc, PokedexState>(
+            builder: (context, state) =>
+                context.read<PokedexBloc>().state.maybeMap(
+                      search: (_) => _closeSearch(context),
+                      orElse: () => _searchBtn(context),
+                    ),
+          ),
+        ],
       ),
-      body: BlocProvider(
-        create: (context) => getIt<PokedexBloc>(
-          param1: context.read<ThemeBloc>(),
-        ),
-        child: const _Content(),
-      ),
+      body: const _Content(),
     );
   }
+
+  Widget _searchBtn(BuildContext context) => IconButton(
+        onPressed: () =>
+            context.read<PokedexBloc>().add(const PokedexEvent.goToSearch()),
+        icon: const Icon(
+          Icons.search,
+        ),
+      );
+
+  Widget _closeSearch(BuildContext context) => IconButton(
+        onPressed: () =>
+            context.read<PokedexBloc>().add(const PokedexEvent.load()),
+        icon: const Icon(
+          Icons.close,
+        ),
+      );
 }
 
 class _Content extends StatelessWidget {
@@ -32,6 +66,7 @@ class _Content extends StatelessWidget {
     return BlocBuilder<PokedexBloc, PokedexState>(
       builder: (context, state) => state.maybeMap(
         content: (st) => _PokemonList(names: st.names),
+        search: (st) => _Search(st.input),
         error: (st) => ErrorView(
           error: st.error,
           onRetry: () =>
@@ -58,6 +93,67 @@ class _PokemonList extends StatelessWidget {
             .read<PokedexBloc>()
             .add(PokedexEvent.pokemonDetails(names[i])),
       ),
+    );
+  }
+}
+
+class _Search extends StatefulWidget {
+  const _Search(this.input);
+  final String input;
+
+  @override
+  State<_Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<_Search> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = TextEditingController(text: widget.input);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return PortalPage(
+      body: BlocBuilder<PokedexBloc, PokedexState>(
+        builder: (context, state) => state.maybeMap(
+          search: (st) => Stack(
+            children: [
+              ListView.builder(
+                padding: dimen.top.xl,
+                shrinkWrap: true,
+                itemCount: st.matchingNames.length,
+                itemBuilder: (context, index) => ListTile(
+                  title: Text(st.matchingNames[index]),
+                  onTap: () => context.read<PokedexBloc>().add(
+                        PokedexEvent.pokemonDetails(st.matchingNames[index]),
+                      ),
+                ),
+              ),
+              TextField(
+                controller: _controller,
+                onChanged: (value) => searchInputListener(context),
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  filled: true,
+                ),
+              ),
+            ],
+          ),
+          orElse: () => const LoadingView(),
+        ),
+      ),
+    );
+  }
+
+  void searchInputListener(BuildContext context) {
+    Future.delayed(const Duration(seconds: 1)).then(
+      (_) => context
+          .read<PokedexBloc>()
+          .add(PokedexEvent.search(input: _controller.text)),
     );
   }
 }

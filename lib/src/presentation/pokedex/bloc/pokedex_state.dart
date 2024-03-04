@@ -10,5 +10,11 @@ class PokedexState with _$PokedexState {
     required List<String> names,
   }) = _ContentPokedexState;
 
+  const factory PokedexState.search({
+    required List<String> names,
+    @Default([]) List<String> matchingNames,
+    @Default('') String input,
+  }) = _SearchPokedexState;
+
   const factory PokedexState.error(Exception error) = _ErrorPokedexState;
 }

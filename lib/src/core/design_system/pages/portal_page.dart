@@ -25,7 +25,7 @@ class PortalPage extends StatelessWidget {
       extendBodyBehindAppBar: extendBodyBehindAppBar,
       drawer: showDrawer ? const AppDrawer() : null,
       body: body,
-      bottomSheet: BottomBar(bottomBar: bottomBar),
+      bottomSheet: bottomBar != null ? BottomBar(bottomBar: bottomBar) : null,
     );
   }
 }
