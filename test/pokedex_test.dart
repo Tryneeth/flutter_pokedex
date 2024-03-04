@@ -6,18 +6,18 @@ import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 
-import 'mocks.dart';
+import 'utils/mocks.dart';
 
 void main() {
+  const baseUrl = 'https://pokeapi.co/api/v2';
+
+  final dio = Dio(BaseOptions(baseUrl: baseUrl));
   late final DioAdapter dioAdapter;
+  dioAdapter = DioAdapter(dio: dio);
 
   setUpAll(() => appDIInitializer());
 
   setUp(() {
-    const baseUrl = 'https://pokeapi.co/api/v2';
-    final dio = Dio(BaseOptions(baseUrl: baseUrl));
-    dioAdapter = DioAdapter(dio: dio);
-
     dio.httpClientAdapter = dioAdapter;
 
     dioAdapter.onGet(

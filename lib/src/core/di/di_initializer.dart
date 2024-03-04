@@ -13,5 +13,9 @@ void appDIInitializer() {
       'https://pokeapi.co/api/v2',
       instanceName: ApiDiParameterName.baseUrlV2,
     )
+    ..registerSingleton(
+      'develop',
+      instanceName: ApiDiParameterName.environment,
+    )
     ..init();
 }

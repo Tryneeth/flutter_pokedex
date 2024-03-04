@@ -18,13 +18,16 @@ class PokemonDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<PokemonDetailsBloc>(param1: pokemonName),
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+          ),
+          body: const _Content(),
+          bottomSheet: const _BottomActionBar(),
         ),
-        body: const _Content(),
-        bottomSheet: const _BottomActionBar(),
       ),
     );
   }
@@ -37,21 +40,23 @@ class _BottomActionBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocSelector<PokemonDetailsBloc, PokemonDetailsState, bool>(
       selector: (state) {
-        return state.maybeMap(content: (_) => true ,orElse: () => false);
+        return state.maybeMap(content: (_) => true, orElse: () => false);
       },
       builder: (context, state) {
-        return state ? BottomBar(
-          bottomBar: Row(
-            children: [
-              Expanded(
-                child: FilledButton(
-                  child: const Text('Capture'),
-                  onPressed: () {},
+        return state
+            ? BottomBar(
+                bottomBar: Row(
+                  children: [
+                    Expanded(
+                      child: FilledButton(
+                        child: const Text('Capture'),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-        ) : const SizedBox.shrink();
+              )
+            : const SizedBox.shrink();
       },
     );
   }
