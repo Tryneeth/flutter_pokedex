@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:either_dart/either.dart';
 import 'package:flutter_pokedex/src/domain/models/hive_adapters/hive_pokemon.dart';
-import 'package:flutter_pokedex/src/domain/usecases/get_all_captured_pokemons_usecase.dart';
+import 'package:flutter_pokedex/src/domain/usecases/get_captured_pokemons_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'captured_event.dart';

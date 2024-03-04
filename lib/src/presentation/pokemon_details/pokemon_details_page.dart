@@ -17,7 +17,10 @@ class PokemonDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<PokemonDetailsBloc>(param1: pokemonName),
+      create: (context) => getIt<PokemonDetailsBloc>(
+        param1: pokemonName,
+        param2: context.read<ThemeBloc>(),
+      ),
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(

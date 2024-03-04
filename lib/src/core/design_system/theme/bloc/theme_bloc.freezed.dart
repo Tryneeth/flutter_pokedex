@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ThemeEvent {
-  ThemeData get theme => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() load,
     required TResult Function(ThemeData theme) change,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
     TResult? Function(ThemeData theme)? change,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
     TResult Function(ThemeData theme)? change,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadThemeEvent value) load,
     required TResult Function(_ChangeThemeEvent value) change,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadThemeEvent value)? load,
     TResult? Function(_ChangeThemeEvent value)? change,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadThemeEvent value)? load,
     TResult Function(_ChangeThemeEvent value)? change,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ThemeEventCopyWith<ThemeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $ThemeEventCopyWith<$Res> {
   factory $ThemeEventCopyWith(
           ThemeEvent value, $Res Function(ThemeEvent) then) =
       _$ThemeEventCopyWithImpl<$Res, ThemeEvent>;
-  @useResult
-  $Res call({ThemeData theme});
 }
 
 /// @nodoc
@@ -73,28 +72,115 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = null,
-  }) {
-    return _then(_value.copyWith(
-      theme: null == theme
-          ? _value.theme
-          : theme // ignore: cast_nullable_to_non_nullable
-              as ThemeData,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ChangeThemeEventImplCopyWith<$Res>
-    implements $ThemeEventCopyWith<$Res> {
+abstract class _$$LoadThemeEventImplCopyWith<$Res> {
+  factory _$$LoadThemeEventImplCopyWith(_$LoadThemeEventImpl value,
+          $Res Function(_$LoadThemeEventImpl) then) =
+      __$$LoadThemeEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadThemeEventImplCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$LoadThemeEventImpl>
+    implements _$$LoadThemeEventImplCopyWith<$Res> {
+  __$$LoadThemeEventImplCopyWithImpl(
+      _$LoadThemeEventImpl _value, $Res Function(_$LoadThemeEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadThemeEventImpl implements _LoadThemeEvent {
+  const _$LoadThemeEventImpl();
+
+  @override
+  String toString() {
+    return 'ThemeEvent.load()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadThemeEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(ThemeData theme) change,
+  }) {
+    return load();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(ThemeData theme)? change,
+  }) {
+    return load?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(ThemeData theme)? change,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadThemeEvent value) load,
+    required TResult Function(_ChangeThemeEvent value) change,
+  }) {
+    return load(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadThemeEvent value)? load,
+    TResult? Function(_ChangeThemeEvent value)? change,
+  }) {
+    return load?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadThemeEvent value)? load,
+    TResult Function(_ChangeThemeEvent value)? change,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadThemeEvent implements ThemeEvent {
+  const factory _LoadThemeEvent() = _$LoadThemeEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeThemeEventImplCopyWith<$Res> {
   factory _$$ChangeThemeEventImplCopyWith(_$ChangeThemeEventImpl value,
           $Res Function(_$ChangeThemeEventImpl) then) =
       __$$ChangeThemeEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ThemeData theme});
 }
@@ -155,6 +241,7 @@ class _$ChangeThemeEventImpl implements _ChangeThemeEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() load,
     required TResult Function(ThemeData theme) change,
   }) {
     return change(theme);
@@ -163,6 +250,7 @@ class _$ChangeThemeEventImpl implements _ChangeThemeEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
     TResult? Function(ThemeData theme)? change,
   }) {
     return change?.call(theme);
@@ -171,6 +259,7 @@ class _$ChangeThemeEventImpl implements _ChangeThemeEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
     TResult Function(ThemeData theme)? change,
     required TResult orElse(),
   }) {
@@ -183,6 +272,7 @@ class _$ChangeThemeEventImpl implements _ChangeThemeEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_LoadThemeEvent value) load,
     required TResult Function(_ChangeThemeEvent value) change,
   }) {
     return change(this);
@@ -191,6 +281,7 @@ class _$ChangeThemeEventImpl implements _ChangeThemeEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadThemeEvent value)? load,
     TResult? Function(_ChangeThemeEvent value)? change,
   }) {
     return change?.call(this);
@@ -199,6 +290,7 @@ class _$ChangeThemeEventImpl implements _ChangeThemeEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadThemeEvent value)? load,
     TResult Function(_ChangeThemeEvent value)? change,
     required TResult orElse(),
   }) {
@@ -213,9 +305,7 @@ abstract class _ChangeThemeEvent implements ThemeEvent {
   const factory _ChangeThemeEvent(final ThemeData theme) =
       _$ChangeThemeEventImpl;
 
-  @override
   ThemeData get theme;
-  @override
   @JsonKey(ignore: true)
   _$$ChangeThemeEventImplCopyWith<_$ChangeThemeEventImpl> get copyWith =>
       throw _privateConstructorUsedError;

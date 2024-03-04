@@ -14,7 +14,9 @@ class PokedexPage extends StatelessWidget {
         title: const Text('Pokedex'),
       ),
       body: BlocProvider(
-        create: (context) => getIt<PokedexBloc>(),
+        create: (context) => getIt<PokedexBloc>(
+          param1: context.read<ThemeBloc>(),
+        ),
         child: const _Content(),
       ),
     );
