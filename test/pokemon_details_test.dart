@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
@@ -16,6 +15,7 @@ import 'utils/utils.dart';
 
 void main() {
   const baseUrl = 'https://pokeapi.co/api/v2';
+  const subDir = 'details';
 
   final dio = Dio(BaseOptions(baseUrl: baseUrl));
   late final DioAdapter dioAdapter;
@@ -24,11 +24,11 @@ void main() {
   final mockedCaptureHive = MockCapturedHive();
 
   setUpAll(() {
-    Hive.init(hiveTestPath);
+    Hive.init(hiveTestPath(subDir));
     appDIInitializer();
   });
 
-  tearDownAll(() => Directory(hiveTestPath).delete(recursive: true));
+  tearDownAll(() => deleteHiveTestingDirectory(subDir));
 
   setUp(() {
     dio.httpClientAdapter = dioAdapter;
@@ -43,7 +43,7 @@ void main() {
       ..replaceSingleton<CapturedHive>(mockedCaptureHive);
   });
 
-  testWidgets('Pokemon details are loaded', (WidgetTester tester) async {
+  Future<void> iAmOnDetailsPage(WidgetTester tester) async {
     await tester.pumpWidget(
       const DummyApp(
         child: PokemonDetailsPage(
@@ -51,7 +51,12 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle(const Duration(minutes: 2));
+
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('Pokemon details are loaded', (WidgetTester tester) async {
+    await iAmOnDetailsPage(tester);
 
     expect(find.text('BULBASAUR'), findsOne);
     expect(find.text('# 1'), findsOne);
@@ -65,15 +70,7 @@ void main() {
   });
 
   testWidgets('Pokemon is captured', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      const DummyApp(
-        child: PokemonDetailsPage(
-          pokemonName: 'bulbasaur',
-        ),
-      ),
-    );
-
-    await tester.pumpAndSettle();
+    await iAmOnDetailsPage(tester);
 
     final captureBtn = find.text('Capture');
     final releaseBtn = find.text('Release');
@@ -91,15 +88,7 @@ void main() {
   });
 
   testWidgets('Pokemon is released', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      const DummyApp(
-        child: PokemonDetailsPage(
-          pokemonName: 'bulbasaur',
-        ),
-      ),
-    );
-
-    await tester.pumpAndSettle();
+    await iAmOnDetailsPage(tester);
 
     expect(find.text('BULBASAUR'), findsOne);
 
@@ -124,14 +113,7 @@ void main() {
       (request) => request.reply(500, {}),
     );
 
-    await tester.pumpWidget(
-      const DummyApp(
-        child: PokemonDetailsPage(
-          pokemonName: 'bulbasaur',
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
+    await iAmOnDetailsPage(tester);
 
     expect(find.text('bulbasaur'), findsNothing);
     expect(find.text('An error has occurred'), findsOne);

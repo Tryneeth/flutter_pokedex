@@ -16,4 +16,10 @@ extension GetItX on GetIt {
 }
 
 final _path = Directory.current.path;
-final hiveTestPath = '$_path/test/hive_testing_path';
+String hiveTestPath(String subDir) => '$_path/test/hive_testing_path';
+
+void deleteHiveTestingDirectory(String subDir) {
+  try {
+    Directory('$hiveTestPath()$subDir').delete(recursive: true);
+  } catch (_) {}
+}
