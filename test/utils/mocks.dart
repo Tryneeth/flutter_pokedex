@@ -1,3 +1,65 @@
+import 'package:flutter_pokedex/src/data/providers/captured_hive.dart';
+import 'package:flutter_pokedex/src/domain/models/hive_adapters/hive_pokemon.dart';
+import 'package:flutter_pokedex/src/domain/models/pokemon_type.dart';
+import 'package:flutter_pokedex/src/presentation/navigator/pokedex_navigator.dart';
+import 'package:mockito/annotations.dart';
+
+@GenerateNiceMocks([MockSpec<CapturedHive>(), MockSpec<PokedexNavigator>()])
+final hiveBulbasaur = HivePokemon(
+  id: 1,
+  name: 'bulbasaur',
+  types: [PokemonType.grass],
+  thumbnail: 'thumbnail',
+);
+
+final hiveCapturedPokemonsEvenType = [
+  HivePokemon(
+    id: 1,
+    name: 'grass_pokemon_1',
+    types: [PokemonType.grass],
+    thumbnail: 'thumbnail',
+  ),
+  HivePokemon(
+    id: 2,
+    name: 'water_pokemon_1',
+    types: [PokemonType.water],
+    thumbnail: 'thumbnail',
+  ),
+  HivePokemon(
+    id: 3,
+    name: 'fire_pokemon_1',
+    types: [PokemonType.fire],
+    thumbnail: 'thumbnail',
+  ),
+];
+
+final hiveCapturedPokemonsFirePredominant = [
+  HivePokemon(
+    id: 1,
+    name: 'grass_pokemon_1',
+    types: [PokemonType.grass],
+    thumbnail: 'thumbnail',
+  ),
+  HivePokemon(
+    id: 2,
+    name: 'water_pokemon_1',
+    types: [PokemonType.water],
+    thumbnail: 'thumbnail',
+  ),
+  HivePokemon(
+    id: 3,
+    name: 'fire_pokemon_1',
+    types: [PokemonType.fire],
+    thumbnail: 'thumbnail',
+  ),
+  HivePokemon(
+    id: 3,
+    name: 'fire_pokemon_2',
+    types: [PokemonType.fire],
+    thumbnail: 'thumbnail',
+  ),
+];
+
 const pokemonList = '''
 {
     "count": 1302,

@@ -8,13 +8,12 @@ import 'package:flutter_pokedex/src/presentation/pokemon_details/pokemon_details
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
-import 'package:mockito/annotations.dart';
 
-import 'pokemon_details_test.mocks.dart';
 import 'utils/dummy_app.dart';
 import 'utils/mocks.dart';
+import 'utils/mocks.mocks.dart';
+import 'utils/utils.dart';
 
-@GenerateNiceMocks([MockSpec<CapturedHive>()])
 void main() {
   const baseUrl = 'https://pokeapi.co/api/v2';
 
@@ -25,10 +24,11 @@ void main() {
   final mockedCaptureHive = MockCapturedHive();
 
   setUpAll(() {
-    var path = Directory.current.path;
-    Hive.init('$path/test/hive_testing_path');
+    Hive.init(hiveTestPath);
     appDIInitializer();
   });
+
+  tearDownAll(() => Directory(hiveTestPath).delete(recursive: true));
 
   setUp(() {
     dio.httpClientAdapter = dioAdapter;
@@ -38,15 +38,9 @@ void main() {
       (request) => request.reply(200, jsonDecode(bulbasaurJson)),
     );
 
-    if (getIt.isRegistered<Dio>()) {
-      getIt.unregister<Dio>();
-      getIt.registerSingleton(dio);
-    }
-
-    if (getIt.isRegistered<CapturedHive>()) {
-      getIt.unregister<CapturedHive>();
-      getIt.registerSingleton<CapturedHive>(mockedCaptureHive);
-    }
+    getIt
+      ..replaceSingleton<Dio>(dio)
+      ..replaceSingleton<CapturedHive>(mockedCaptureHive);
   });
 
   testWidgets('Pokemon details are loaded', (WidgetTester tester) async {

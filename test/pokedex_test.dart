@@ -9,6 +9,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 
 import 'utils/mocks.dart';
+import 'utils/utils.dart';
 
 void main() {
   const baseUrl = 'https://pokeapi.co/api/v2';
@@ -18,10 +19,11 @@ void main() {
   dioAdapter = DioAdapter(dio: dio);
 
   setUpAll(() async {
-    var path = Directory.current.path;
-    Hive.init('$path/test/hive_testing_path');
+    Hive.init(hiveTestPath);
     appDIInitializer();
   });
+
+  tearDownAll(() => Directory(hiveTestPath).delete(recursive: true));
 
   setUp(() {
     dio.httpClientAdapter = dioAdapter;
@@ -31,10 +33,7 @@ void main() {
       (request) => request.reply(200, jsonDecode(pokemonList)),
     );
 
-    if (getIt.isRegistered<Dio>()) {
-      getIt.unregister<Dio>();
-      getIt.registerSingleton(dio);
-    }
+    getIt.replaceSingleton<Dio>(dio);
   });
 
   testWidgets('Pokemon list is loaded', (WidgetTester tester) async {

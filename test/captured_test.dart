@@ -4,26 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_pokedex/src/data/providers/captured_hive.dart';
 import 'package:flutter_pokedex/src/presentation/captured/captured_page.dart';
+import 'package:flutter_pokedex/src/presentation/navigator/pokedex_navigator.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'pokemon_details_test.mocks.dart';
 import 'utils/dummy_app.dart';
+import 'utils/mocks.mocks.dart';
+import 'utils/utils.dart';
 
 void main() {
   final mockedCaptureHive = MockCapturedHive();
+  final mockedNavigator = MockPokedexNavigator();
 
   setUpAll(() {
-    var path = Directory.current.path;
-    Hive.init('$path/test/hive_testing_path');
+    Hive.init(hiveTestPath);
     appDIInitializer();
   });
 
+  tearDownAll(() => Directory(hiveTestPath).delete(recursive: true));
+
   setUp(() {
-    if (getIt.isRegistered<CapturedHive>()) {
-      getIt.unregister<CapturedHive>();
-      getIt.registerSingleton<CapturedHive>(mockedCaptureHive);
-    }
+    getIt
+      ..replaceSingleton<CapturedHive>(mockedCaptureHive)
+      ..replaceSingleton<PokedexNavigator>(mockedNavigator);
   });
 
   testWidgets('Filters bottom sheet is shown', (WidgetTester tester) async {
