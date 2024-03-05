@@ -20,18 +20,22 @@ mixin _$CapturedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(String pokemonName) pokemonDetails,
+    required TResult Function(Sort sort, List<PokemonType> filter)
+        sortAndFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(String pokemonName)? pokemonDetails,
+    TResult? Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(String pokemonName)? pokemonDetails,
+    TResult Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +44,21 @@ mixin _$CapturedEvent {
     required TResult Function(_LoadCapturedEvent value) load,
     required TResult Function(_PokemonDetailsCapturedEvent value)
         pokemonDetails,
+    required TResult Function(_SortAndFilterCapturedEvent value) sortAndFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadCapturedEvent value)? load,
     TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult? Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadCapturedEvent value)? load,
     TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,6 +122,8 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(String pokemonName) pokemonDetails,
+    required TResult Function(Sort sort, List<PokemonType> filter)
+        sortAndFilter,
   }) {
     return load();
   }
@@ -124,6 +133,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(String pokemonName)? pokemonDetails,
+    TResult? Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
   }) {
     return load?.call();
   }
@@ -133,6 +143,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(String pokemonName)? pokemonDetails,
+    TResult Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -147,6 +158,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
     required TResult Function(_LoadCapturedEvent value) load,
     required TResult Function(_PokemonDetailsCapturedEvent value)
         pokemonDetails,
+    required TResult Function(_SortAndFilterCapturedEvent value) sortAndFilter,
   }) {
     return load(this);
   }
@@ -156,6 +168,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadCapturedEvent value)? load,
     TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult? Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
   }) {
     return load?.call(this);
   }
@@ -165,6 +178,7 @@ class _$LoadCapturedEventImpl implements _LoadCapturedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadCapturedEvent value)? load,
     TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -249,6 +263,8 @@ class _$PokemonDetailsCapturedEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function(String pokemonName) pokemonDetails,
+    required TResult Function(Sort sort, List<PokemonType> filter)
+        sortAndFilter,
   }) {
     return pokemonDetails(pokemonName);
   }
@@ -258,6 +274,7 @@ class _$PokemonDetailsCapturedEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function(String pokemonName)? pokemonDetails,
+    TResult? Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
   }) {
     return pokemonDetails?.call(pokemonName);
   }
@@ -267,6 +284,7 @@ class _$PokemonDetailsCapturedEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function(String pokemonName)? pokemonDetails,
+    TResult Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
     required TResult orElse(),
   }) {
     if (pokemonDetails != null) {
@@ -281,6 +299,7 @@ class _$PokemonDetailsCapturedEventImpl
     required TResult Function(_LoadCapturedEvent value) load,
     required TResult Function(_PokemonDetailsCapturedEvent value)
         pokemonDetails,
+    required TResult Function(_SortAndFilterCapturedEvent value) sortAndFilter,
   }) {
     return pokemonDetails(this);
   }
@@ -290,6 +309,7 @@ class _$PokemonDetailsCapturedEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadCapturedEvent value)? load,
     TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult? Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
   }) {
     return pokemonDetails?.call(this);
   }
@@ -299,6 +319,7 @@ class _$PokemonDetailsCapturedEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadCapturedEvent value)? load,
     TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
     required TResult orElse(),
   }) {
     if (pokemonDetails != null) {
@@ -319,12 +340,179 @@ abstract class _PokemonDetailsCapturedEvent implements CapturedEvent {
 }
 
 /// @nodoc
+abstract class _$$SortAndFilterCapturedEventImplCopyWith<$Res> {
+  factory _$$SortAndFilterCapturedEventImplCopyWith(
+          _$SortAndFilterCapturedEventImpl value,
+          $Res Function(_$SortAndFilterCapturedEventImpl) then) =
+      __$$SortAndFilterCapturedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Sort sort, List<PokemonType> filter});
+}
+
+/// @nodoc
+class __$$SortAndFilterCapturedEventImplCopyWithImpl<$Res>
+    extends _$CapturedEventCopyWithImpl<$Res, _$SortAndFilterCapturedEventImpl>
+    implements _$$SortAndFilterCapturedEventImplCopyWith<$Res> {
+  __$$SortAndFilterCapturedEventImplCopyWithImpl(
+      _$SortAndFilterCapturedEventImpl _value,
+      $Res Function(_$SortAndFilterCapturedEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sort = null,
+    Object? filter = null,
+  }) {
+    return _then(_$SortAndFilterCapturedEventImpl(
+      sort: null == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as Sort,
+      filter: null == filter
+          ? _value._filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as List<PokemonType>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SortAndFilterCapturedEventImpl implements _SortAndFilterCapturedEvent {
+  const _$SortAndFilterCapturedEventImpl(
+      {this.sort = Sort.byId, final List<PokemonType> filter = const []})
+      : _filter = filter;
+
+  @override
+  @JsonKey()
+  final Sort sort;
+  final List<PokemonType> _filter;
+  @override
+  @JsonKey()
+  List<PokemonType> get filter {
+    if (_filter is EqualUnmodifiableListView) return _filter;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filter);
+  }
+
+  @override
+  String toString() {
+    return 'CapturedEvent.sortAndFilter(sort: $sort, filter: $filter)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SortAndFilterCapturedEventImpl &&
+            (identical(other.sort, sort) || other.sort == sort) &&
+            const DeepCollectionEquality().equals(other._filter, _filter));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, sort, const DeepCollectionEquality().hash(_filter));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SortAndFilterCapturedEventImplCopyWith<_$SortAndFilterCapturedEventImpl>
+      get copyWith => __$$SortAndFilterCapturedEventImplCopyWithImpl<
+          _$SortAndFilterCapturedEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String pokemonName) pokemonDetails,
+    required TResult Function(Sort sort, List<PokemonType> filter)
+        sortAndFilter,
+  }) {
+    return sortAndFilter(sort, filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String pokemonName)? pokemonDetails,
+    TResult? Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
+  }) {
+    return sortAndFilter?.call(sort, filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String pokemonName)? pokemonDetails,
+    TResult Function(Sort sort, List<PokemonType> filter)? sortAndFilter,
+    required TResult orElse(),
+  }) {
+    if (sortAndFilter != null) {
+      return sortAndFilter(sort, filter);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadCapturedEvent value) load,
+    required TResult Function(_PokemonDetailsCapturedEvent value)
+        pokemonDetails,
+    required TResult Function(_SortAndFilterCapturedEvent value) sortAndFilter,
+  }) {
+    return sortAndFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadCapturedEvent value)? load,
+    TResult? Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult? Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
+  }) {
+    return sortAndFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadCapturedEvent value)? load,
+    TResult Function(_PokemonDetailsCapturedEvent value)? pokemonDetails,
+    TResult Function(_SortAndFilterCapturedEvent value)? sortAndFilter,
+    required TResult orElse(),
+  }) {
+    if (sortAndFilter != null) {
+      return sortAndFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SortAndFilterCapturedEvent implements CapturedEvent {
+  const factory _SortAndFilterCapturedEvent(
+      {final Sort sort,
+      final List<PokemonType> filter}) = _$SortAndFilterCapturedEventImpl;
+
+  Sort get sort;
+  List<PokemonType> get filter;
+  @JsonKey(ignore: true)
+  _$$SortAndFilterCapturedEventImplCopyWith<_$SortAndFilterCapturedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CapturedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<HivePokemon> capturedList) content,
+    required TResult Function(List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList, Sort sort, List<PokemonType> filter)
+        content,
     required TResult Function(Exception error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -332,7 +520,12 @@ mixin _$CapturedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<HivePokemon> capturedList)? content,
+    TResult? Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult? Function(Exception error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -340,7 +533,12 @@ mixin _$CapturedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<HivePokemon> capturedList)? content,
+    TResult Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) =>
@@ -431,7 +629,9 @@ class _$InitialCapturedStateImpl implements _InitialCapturedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<HivePokemon> capturedList) content,
+    required TResult Function(List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList, Sort sort, List<PokemonType> filter)
+        content,
     required TResult Function(Exception error) error,
   }) {
     return initial();
@@ -442,7 +642,12 @@ class _$InitialCapturedStateImpl implements _InitialCapturedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<HivePokemon> capturedList)? content,
+    TResult? Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult? Function(Exception error)? error,
   }) {
     return initial?.call();
@@ -453,7 +658,12 @@ class _$InitialCapturedStateImpl implements _InitialCapturedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<HivePokemon> capturedList)? content,
+    TResult Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -546,7 +756,9 @@ class _$LoadingCapturedStateImpl implements _LoadingCapturedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<HivePokemon> capturedList) content,
+    required TResult Function(List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList, Sort sort, List<PokemonType> filter)
+        content,
     required TResult Function(Exception error) error,
   }) {
     return loading();
@@ -557,7 +769,12 @@ class _$LoadingCapturedStateImpl implements _LoadingCapturedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<HivePokemon> capturedList)? content,
+    TResult? Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult? Function(Exception error)? error,
   }) {
     return loading?.call();
@@ -568,7 +785,12 @@ class _$LoadingCapturedStateImpl implements _LoadingCapturedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<HivePokemon> capturedList)? content,
+    TResult Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -626,7 +848,11 @@ abstract class _$$ContentCapturedStateImplCopyWith<$Res> {
           $Res Function(_$ContentCapturedStateImpl) then) =
       __$$ContentCapturedStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<HivePokemon> capturedList});
+  $Res call(
+      {List<HivePokemon> capturedList,
+      List<HivePokemon> filteredList,
+      Sort sort,
+      List<PokemonType> filter});
 }
 
 /// @nodoc
@@ -641,12 +867,27 @@ class __$$ContentCapturedStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? capturedList = null,
+    Object? filteredList = null,
+    Object? sort = null,
+    Object? filter = null,
   }) {
     return _then(_$ContentCapturedStateImpl(
       capturedList: null == capturedList
           ? _value._capturedList
           : capturedList // ignore: cast_nullable_to_non_nullable
               as List<HivePokemon>,
+      filteredList: null == filteredList
+          ? _value._filteredList
+          : filteredList // ignore: cast_nullable_to_non_nullable
+              as List<HivePokemon>,
+      sort: null == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as Sort,
+      filter: null == filter
+          ? _value._filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as List<PokemonType>,
     ));
   }
 }
@@ -655,8 +896,13 @@ class __$$ContentCapturedStateImplCopyWithImpl<$Res>
 
 class _$ContentCapturedStateImpl implements _ContentCapturedState {
   const _$ContentCapturedStateImpl(
-      {required final List<HivePokemon> capturedList})
-      : _capturedList = capturedList;
+      {required final List<HivePokemon> capturedList,
+      required final List<HivePokemon> filteredList,
+      this.sort = Sort.byId,
+      final List<PokemonType> filter = const []})
+      : _capturedList = capturedList,
+        _filteredList = filteredList,
+        _filter = filter;
 
   final List<HivePokemon> _capturedList;
   @override
@@ -666,9 +912,29 @@ class _$ContentCapturedStateImpl implements _ContentCapturedState {
     return EqualUnmodifiableListView(_capturedList);
   }
 
+  final List<HivePokemon> _filteredList;
+  @override
+  List<HivePokemon> get filteredList {
+    if (_filteredList is EqualUnmodifiableListView) return _filteredList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filteredList);
+  }
+
+  @override
+  @JsonKey()
+  final Sort sort;
+  final List<PokemonType> _filter;
+  @override
+  @JsonKey()
+  List<PokemonType> get filter {
+    if (_filter is EqualUnmodifiableListView) return _filter;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filter);
+  }
+
   @override
   String toString() {
-    return 'CapturedState.content(capturedList: $capturedList)';
+    return 'CapturedState.content(capturedList: $capturedList, filteredList: $filteredList, sort: $sort, filter: $filter)';
   }
 
   @override
@@ -677,12 +943,20 @@ class _$ContentCapturedStateImpl implements _ContentCapturedState {
         (other.runtimeType == runtimeType &&
             other is _$ContentCapturedStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._capturedList, _capturedList));
+                .equals(other._capturedList, _capturedList) &&
+            const DeepCollectionEquality()
+                .equals(other._filteredList, _filteredList) &&
+            (identical(other.sort, sort) || other.sort == sort) &&
+            const DeepCollectionEquality().equals(other._filter, _filter));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_capturedList));
+      runtimeType,
+      const DeepCollectionEquality().hash(_capturedList),
+      const DeepCollectionEquality().hash(_filteredList),
+      sort,
+      const DeepCollectionEquality().hash(_filter));
 
   @JsonKey(ignore: true)
   @override
@@ -697,10 +971,12 @@ class _$ContentCapturedStateImpl implements _ContentCapturedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<HivePokemon> capturedList) content,
+    required TResult Function(List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList, Sort sort, List<PokemonType> filter)
+        content,
     required TResult Function(Exception error) error,
   }) {
-    return content(capturedList);
+    return content(capturedList, filteredList, sort, filter);
   }
 
   @override
@@ -708,10 +984,15 @@ class _$ContentCapturedStateImpl implements _ContentCapturedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<HivePokemon> capturedList)? content,
+    TResult? Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult? Function(Exception error)? error,
   }) {
-    return content?.call(capturedList);
+    return content?.call(capturedList, filteredList, sort, filter);
   }
 
   @override
@@ -719,12 +1000,17 @@ class _$ContentCapturedStateImpl implements _ContentCapturedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<HivePokemon> capturedList)? content,
+    TResult Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(capturedList);
+      return content(capturedList, filteredList, sort, filter);
     }
     return orElse();
   }
@@ -769,10 +1055,15 @@ class _$ContentCapturedStateImpl implements _ContentCapturedState {
 
 abstract class _ContentCapturedState implements CapturedState {
   const factory _ContentCapturedState(
-          {required final List<HivePokemon> capturedList}) =
-      _$ContentCapturedStateImpl;
+      {required final List<HivePokemon> capturedList,
+      required final List<HivePokemon> filteredList,
+      final Sort sort,
+      final List<PokemonType> filter}) = _$ContentCapturedStateImpl;
 
   List<HivePokemon> get capturedList;
+  List<HivePokemon> get filteredList;
+  Sort get sort;
+  List<PokemonType> get filter;
   @JsonKey(ignore: true)
   _$$ContentCapturedStateImplCopyWith<_$ContentCapturedStateImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -845,7 +1136,9 @@ class _$ErrorCapturedStateImpl implements _ErrorCapturedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<HivePokemon> capturedList) content,
+    required TResult Function(List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList, Sort sort, List<PokemonType> filter)
+        content,
     required TResult Function(Exception error) error,
   }) {
     return error(this.error);
@@ -856,7 +1149,12 @@ class _$ErrorCapturedStateImpl implements _ErrorCapturedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<HivePokemon> capturedList)? content,
+    TResult? Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult? Function(Exception error)? error,
   }) {
     return error?.call(this.error);
@@ -867,7 +1165,12 @@ class _$ErrorCapturedStateImpl implements _ErrorCapturedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<HivePokemon> capturedList)? content,
+    TResult Function(
+            List<HivePokemon> capturedList,
+            List<HivePokemon> filteredList,
+            Sort sort,
+            List<PokemonType> filter)?
+        content,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {

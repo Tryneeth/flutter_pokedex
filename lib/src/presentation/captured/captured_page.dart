@@ -6,19 +6,41 @@ import 'package:flutter_pokedex/src/core/design_system/pages/portal_page.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_pokedex/src/domain/models/hive_adapters/hive_pokemon.dart';
 import 'package:flutter_pokedex/src/presentation/captured/bloc/captured_bloc.dart';
+import 'package:flutter_pokedex/src/presentation/captured/widgets/filter_widget.dart';
 
 class CapturedPage extends StatelessWidget {
   const CapturedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bloc = getIt<CapturedBloc>();
     return PortalPage(
       appBar: AppBar(
         title: const Text('Captured'),
+        actions: [
+          IconButton(
+            onPressed: () => _showBottomSheet(context, bloc),
+            icon: const Icon(Icons.filter_alt_outlined),
+          ),
+        ],
       ),
-      body: BlocProvider(
-        create: (context) => getIt<CapturedBloc>(),
+      body: BlocProvider.value(
+        value: bloc,
         child: const _Content(),
+      ),
+    );
+  }
+
+  Future<void> _showBottomSheet(
+    BuildContext context,
+    CapturedBloc bloc,
+  ) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      builder: (context) => FilterWidget(
+        bloc: bloc,
       ),
     );
   }
@@ -31,9 +53,9 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CapturedBloc, CapturedState>(
       builder: (context, state) => state.maybeMap(
-        content: (st) => st.capturedList.isEmpty
+        content: (st) => st.filteredList.isEmpty
             ? const _NoneCaptured()
-            : _PokemonGrid(capturedList: st.capturedList),
+            : _PokemonGrid(capturedList: st.filteredList),
         error: (st) => ErrorView(
           error: st.error,
           onRetry: () =>
