@@ -61,35 +61,31 @@ class _OrderBy extends StatelessWidget {
         const ListTile(
           title: Text('Sort'),
         ),
-        ListTile(
+        RadioListTile<Sort>(
           title: const Text('By ID'),
-          leading: Radio<Sort>(
-            value: Sort.byId,
-            groupValue: contentState?.sort,
-            onChanged: (value) {
-              context.read<CapturedBloc>().add(
-                    CapturedEvent.sortAndFilter(
-                      sort: value!,
-                      filter: contentState!.filter,
-                    ),
-                  );
-            },
-          ),
+          value: Sort.byId,
+          groupValue: contentState?.sort,
+          onChanged: (value) {
+            context.read<CapturedBloc>().add(
+                  CapturedEvent.sortAndFilter(
+                    sort: value!,
+                    filter: contentState!.filter,
+                  ),
+                );
+          },
         ),
-        ListTile(
+        RadioListTile<Sort>(
           title: const Text('By Name'),
-          leading: Radio<Sort>(
-            value: Sort.byName,
-            groupValue: contentState?.sort,
-            onChanged: (value) {
-              context.read<CapturedBloc>().add(
-                    CapturedEvent.sortAndFilter(
-                      sort: value!,
-                      filter: contentState!.filter,
-                    ),
-                  );
-            },
-          ),
+          value: Sort.byName,
+          groupValue: contentState?.sort,
+          onChanged: (value) {
+            context.read<CapturedBloc>().add(
+                  CapturedEvent.sortAndFilter(
+                    sort: value!,
+                    filter: contentState!.filter,
+                  ),
+                );
+          },
         ),
       ],
     );

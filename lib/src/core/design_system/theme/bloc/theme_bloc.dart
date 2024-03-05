@@ -24,6 +24,8 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
         load: (event) => _onLoad(emit),
       ),
     );
+
+    add(const ThemeEvent.load());
   }
 
   final GetAllCapturedPokemonsUsecase _getAllCapturedPokemonsUsecase;

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pokedex/src/core/design_system/design_system.dart';
@@ -84,65 +83,16 @@ class _PokemonGrid extends StatelessWidget {
       itemCount: capturedList.length,
       itemBuilder: (context, index) {
         final pokemon = capturedList[index];
-        return _PokemonCard(pokemon: pokemon);
-      },
-    );
-  }
-}
-
-class _PokemonCard extends StatelessWidget {
-  const _PokemonCard({required this.pokemon});
-
-  final HivePokemon pokemon;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => context.read<CapturedBloc>().add(
-            CapturedEvent.pokemonDetails(pokemon.name),
-          ),
-      child: Ink(
-        decoration: BoxDecoration(
+        return PokemonCard(
+          id: pokemon.id,
+          name: pokemon.name,
           color: pokemon.types.first.color,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
-            BoxShadow(color: Colors.black26, blurRadius: micro),
-          ],
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: CachedNetworkImage(
-                imageUrl: pokemon.thumbnail,
-                cacheKey: pokemon.name,
-                width: 100,
-                height: 100,
+          thumbnail: pokemon.thumbnail,
+          onTap: () => context.read<CapturedBloc>().add(
+                CapturedEvent.pokemonDetails(pokemon.name),
               ),
-            ),
-            Positioned(
-              top: sm,
-              left: sm,
-              child: Center(
-                child: Text(
-                  pokemon.name,
-                  style: context.appTheme.primaryTextTheme.headlineSmall,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: sm,
-              left: sm,
-              child: Center(
-                child: Text(
-                  '#${pokemon.id}',
-                  style: context.appTheme.primaryTextTheme.bodySmall,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+        );
+      },
     );
   }
 }
