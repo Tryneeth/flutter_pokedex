@@ -7,7 +7,7 @@ class BottomBar extends StatelessWidget {
     required this.bottomBar,
   });
 
-  final Widget bottomBar;
+  final Widget? bottomBar;
 
   @override
   Widget build(BuildContext context) {

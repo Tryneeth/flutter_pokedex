@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_pokedex/src/core/design_system/design_system.dart';
 import 'package:flutter_pokedex/src/domain/models/pokemon.dart';
 import 'package:flutter_pokedex/src/domain/usecases/get_captured_pokemon_usecase.dart';
 import 'package:flutter_pokedex/src/domain/usecases/get_pokemon_details_usecase.dart';
@@ -20,7 +21,9 @@ class PokemonDetailsBloc
     this._getCapturedPokemonUsecase,
     this._removeCapturedPokemonUsecase,
     @factoryParam String pokemonName,
+    @factoryParam ThemeBloc themeBloc,
   )   : _pokemonName = pokemonName,
+        _themeBloc = themeBloc,
         super(const PokemonDetailsState.initial()) {
     on<PokemonDetailsEvent>(
       (event, emit) => event.map(
@@ -37,6 +40,7 @@ class PokemonDetailsBloc
   final SaveCapturedPokemonUsecase _saveCapturedPokemonUsecase;
   final GetCapturedPokemonUsecase _getCapturedPokemonUsecase;
   final RemoveCapturedPokemonUsecase _removeCapturedPokemonUsecase;
+  final ThemeBloc _themeBloc;
   final String _pokemonName;
 
   Future<void> _onLoad(
@@ -77,8 +81,10 @@ class PokemonDetailsBloc
 
     response.fold(
       (left) => emit(PokemonDetailsState.error(left)),
-      (right) =>
-          emit(contentState.copyWith(processing: false, isCaptured: true)),
+      (right) {
+        _themeBloc.add(const ThemeEvent.load());
+        emit(contentState.copyWith(processing: false, isCaptured: true));
+      },
     );
   }
 
@@ -97,8 +103,10 @@ class PokemonDetailsBloc
 
     response.fold(
       (left) => emit(PokemonDetailsState.error(left)),
-      (right) =>
-          emit(contentState.copyWith(processing: false, isCaptured: false)),
+      (right) {
+        _themeBloc.add(const ThemeEvent.load());
+        emit(contentState.copyWith(processing: false, isCaptured: false));
+      },
     );
   }
 }

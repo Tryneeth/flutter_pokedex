@@ -15,6 +15,12 @@ abstract class _$ClientRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CapturedRoute.name: (routeData) {
+      return AutoRoutePage<void>(
+        routeData: routeData,
+        child: const CapturedScreen(),
+      );
+    },
     PokedexRoute.name: (routeData) {
       return AutoRoutePage<void>(
         routeData: routeData,
@@ -35,6 +41,20 @@ abstract class _$ClientRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CapturedScreen]
+class CapturedRoute extends PageRouteInfo<void> {
+  const CapturedRoute({List<PageRouteInfo>? children})
+      : super(
+          CapturedRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CapturedRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

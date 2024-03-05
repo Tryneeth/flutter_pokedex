@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_pokedex/src/data/providers/captured_hive.dart';
 import 'package:flutter_pokedex/src/presentation/pokemon_details/pokemon_details_page.dart';
@@ -12,6 +11,7 @@ import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:mockito/annotations.dart';
 
 import 'pokemon_details_test.mocks.dart';
+import 'utils/dummy_app.dart';
 import 'utils/mocks.dart';
 
 @GenerateNiceMocks([MockSpec<CapturedHive>()])
@@ -51,8 +51,8 @@ void main() {
 
   testWidgets('Pokemon details are loaded', (WidgetTester tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: PokemonDetailsPage(
+      const DummyApp(
+        child: PokemonDetailsPage(
           pokemonName: 'bulbasaur',
         ),
       ),
@@ -72,8 +72,8 @@ void main() {
 
   testWidgets('Pokemon is captured', (WidgetTester tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: PokemonDetailsPage(
+      const DummyApp(
+        child: PokemonDetailsPage(
           pokemonName: 'bulbasaur',
         ),
       ),
@@ -98,8 +98,8 @@ void main() {
 
   testWidgets('Pokemon is released', (WidgetTester tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: PokemonDetailsPage(
+      const DummyApp(
+        child: PokemonDetailsPage(
           pokemonName: 'bulbasaur',
         ),
       ),
@@ -131,8 +131,8 @@ void main() {
     );
 
     await tester.pumpWidget(
-      const MaterialApp(
-        home: PokemonDetailsPage(
+      const DummyApp(
+        child: PokemonDetailsPage(
           pokemonName: 'bulbasaur',
         ),
       ),

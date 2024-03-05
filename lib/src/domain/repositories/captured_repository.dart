@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:either_dart/either.dart';
 import 'package:flutter_pokedex/src/data/providers/captured_hive.dart';
 import 'package:flutter_pokedex/src/domain/models/hive_adapters/hive_pokemon.dart';

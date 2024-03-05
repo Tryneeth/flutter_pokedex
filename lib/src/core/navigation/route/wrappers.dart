@@ -6,6 +6,11 @@ class PokedexScreen extends PokedexPage {
 }
 
 @RoutePage<void>()
+class CapturedScreen extends CapturedPage {
+  const CapturedScreen({super.key});
+}
+
+@RoutePage<void>()
 class PokemonDetailsScreen extends PokemonDetailsPage {
   const PokemonDetailsScreen({
     super.key,

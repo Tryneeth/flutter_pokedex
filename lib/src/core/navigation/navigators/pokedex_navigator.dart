@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_pokedex/src/core/navigation/router/router.dart';
-import 'package:flutter_pokedex/src/presentation/pokedex/navigator/pokedex_navigator.dart';
+import 'package:flutter_pokedex/src/presentation/navigator/pokedex_navigator.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: PokedexNavigator)
