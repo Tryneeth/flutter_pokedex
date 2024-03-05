@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
 import 'package:flutter_pokedex/src/data/providers/captured_hive.dart';
@@ -13,15 +11,16 @@ import 'utils/mocks.mocks.dart';
 import 'utils/utils.dart';
 
 void main() {
+  const subDir = 'captured';
   final mockedCaptureHive = MockCapturedHive();
   final mockedNavigator = MockPokedexNavigator();
 
   setUpAll(() {
-    Hive.init(hiveTestPath);
+    Hive.init(hiveTestPath(subDir));
     appDIInitializer();
   });
 
-  tearDownAll(() => Directory(hiveTestPath).delete(recursive: true));
+  tearDownAll(() => deleteHiveTestingDirectory(subDir));
 
   setUp(() {
     getIt

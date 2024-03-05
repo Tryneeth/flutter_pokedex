@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_pokedex/src/core/di/di_initializer.dart';
@@ -16,6 +15,7 @@ import 'utils/utils.dart';
 
 void main() {
   const baseUrl = 'https://pokeapi.co/api/v2';
+  const subDir = 'details';
 
   final dio = Dio(BaseOptions(baseUrl: baseUrl));
   late final DioAdapter dioAdapter;
@@ -24,11 +24,11 @@ void main() {
   final mockedCaptureHive = MockCapturedHive();
 
   setUpAll(() {
-    Hive.init(hiveTestPath);
+    Hive.init(hiveTestPath(subDir));
     appDIInitializer();
   });
 
-  tearDownAll(() => Directory(hiveTestPath).delete(recursive: true));
+  tearDownAll(() => deleteHiveTestingDirectory(subDir));
 
   setUp(() {
     dio.httpClientAdapter = dioAdapter;
