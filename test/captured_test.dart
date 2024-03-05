@@ -7,7 +7,6 @@ import 'package:flutter_pokedex/src/presentation/captured/captured_page.dart';
 import 'package:flutter_pokedex/src/presentation/navigator/pokedex_navigator.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:injectable/injectable.dart';
 import 'package:mockito/mockito.dart';
 
 import 'utils/dummy_app.dart';
