@@ -18,25 +18,27 @@ class FilterWidget extends StatelessWidget {
       value: bloc,
       child: BlocBuilder<CapturedBloc, CapturedState>(
         builder: (context, state) {
-          return Container(
-            padding: dimen.all.xs,
-            decoration: BoxDecoration(
-              color: context.appTheme.scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(height: xs),
-                _OrderBy(state),
-                const SizedBox(height: xs),
-                _FilterBy(state),
-                const SizedBox(height: xs),
-                PrimaryButton.responsive(
-                  title: 'Accept',
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
+          return SingleChildScrollView(
+            child: Container(
+              padding: dimen.all.xs,
+              decoration: BoxDecoration(
+                color: context.appTheme.scaffoldBackgroundColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(height: xs),
+                  _OrderBy(state),
+                  const SizedBox(height: xs),
+                  _FilterBy(state),
+                  const SizedBox(height: xs),
+                  PrimaryButton.responsive(
+                    title: 'Accept',
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              ),
             ),
           );
         },
